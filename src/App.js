@@ -8,7 +8,11 @@ import NotFound from "./Pages/Shared/NotFound/NotFound";
 import Inventories from "./Pages/Home/Inventories/Inventories";
 import Login from "./Pages/Login/Login/Login";
 import Registation from "./Pages/Login/Registation/Registation";
-import InventoryCheckOut from "./Pages/InventoryCheckout/InventoryCheckOut";
+// import InventoryCheckOut from "./Pages/InventoryCheckOut/InventoryCheckOut";
+import RequireAuth from "./Pages/Login/RequireAuth/RequireAuth";
+import InventoryDetails from "./Pages/Home/InventoryDetails/InventoryDetails";
+import AddInventoryItems from "./Pages/AddInventoryItems/AddInventoryItems";
+import ManageInventories from "./Pages/ManageInventories/ManageInventories";
 
 function App() {
   return (
@@ -18,7 +22,16 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/inventory/:inventoryId" element={<Inventories />} />
-        <Route path="/checkout/:inventoryId" element={<InventoryCheckOut />} />
+        <Route
+          path="/details/:inventoryId"
+          element={
+            <RequireAuth>
+              <InventoryDetails />
+            </RequireAuth>
+          }
+        />
+        <Route path="/addinventory" element={<AddInventoryItems />} />
+        <Route path="/manageinventory" element={<ManageInventories />} />
         <Route path="/registation" element={<Registation />} />
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<NotFound />} />
