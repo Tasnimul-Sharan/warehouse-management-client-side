@@ -1,13 +1,15 @@
 import axios from "axios";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
+import auth from "../../firebase.init";
 
 const AddInventoryItems = () => {
   const { register, handleSubmit } = useForm();
+  const [user] = useAuthState(auth);
   const onSubmit = (data) => {
-    console.log(data);
-    axios.post("http://localhost:5000/management", data).then((res) => {
+    axios.post("http://localhost:5000/item", data).then((res) => {
       const { data } = res;
       if (data) {
         toast("You have added a new item, Yeah!!!");
@@ -16,42 +18,64 @@ const AddInventoryItems = () => {
   };
 
   return (
-    <div className="w-25 mx-auto">
-      <form className="d-flex flex-column" onSubmit={handleSubmit(onSubmit)}>
+    <div className="row w-25 mx-auto">
+      <form
+        className="d-flex flex-column my-5 col-sm-12 col-md-6"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <input
+          placeholder="Enter Name"
+          className="mb-2"
+          value={user.displayName}
+          type="text"
+          {...register("user name")}
+          required
+        />
+        <input
+          placeholder="Enter Email"
+          className="mb-2"
+          type="email"
+          value={user.email}
+          {...register("email")}
+        />
         <input
           placeholder="Image Url"
-          className=""
+          className="mb-2"
           type="text"
           {...register("image")}
         />
         <input
           placeholder="Item name"
-          className=""
+          className="mb-2"
           {...register("name", { required: true, maxLength: 20 })}
         />
         <input
           placeholder="Item description"
-          className=""
+          className="mb-2"
           {...register("description")}
         />
         <input
           placeholder="Item price"
-          className=""
+          className="mb-2"
           type="number"
           {...register("price", { min: 18, max: 99 })}
         />
         <input
           placeholder="Item quantity"
-          className=""
+          className="mb-2"
           type="number"
           {...register("quantity", { min: 18, max: 99 })}
         />
         <input
           placeholder="Supplier name"
-          className=""
+          className="mb-2"
           {...register("supplier name")}
         />
-        <input className="" type="submit" value="Add new item" />
+        <input
+          className="btn btn-outline-primary"
+          type="submit"
+          value="Add new item"
+        />
       </form>
       <ToastContainer />
     </div>

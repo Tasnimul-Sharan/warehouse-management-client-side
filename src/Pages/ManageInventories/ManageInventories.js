@@ -21,11 +21,11 @@ const ManageInventories = () => {
     }
   };
   return (
-    <div className="container">
-      <div className="row">
+    <div className="container-fluid">
+      <div className="row ms-3">
         {inventories.map((inventory) => (
           <div
-            className="g-5 col-sm-12 col-md-6 col-lg-3 mb-3"
+            className="g-2 col-sm-12 col-md-6 col-lg-3 mb-3"
             key={inventory._id}
             inventory={inventory}
           >

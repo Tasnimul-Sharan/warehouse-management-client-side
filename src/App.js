@@ -8,7 +8,6 @@ import NotFound from "./Pages/Shared/NotFound/NotFound";
 import Inventories from "./Pages/Home/Inventories/Inventories";
 import Login from "./Pages/Login/Login/Login";
 import Registation from "./Pages/Login/Registation/Registation";
-// import InventoryCheckOut from "./Pages/InventoryCheckOut/InventoryCheckOut";
 import RequireAuth from "./Pages/Login/RequireAuth/RequireAuth";
 import InventoryDetails from "./Pages/Home/InventoryDetails/InventoryDetails";
 import AddInventoryItems from "./Pages/AddInventoryItems/AddInventoryItems";
@@ -61,6 +60,7 @@ function App() {
       </Routes>
       <Footer />
     </div>
+    // https://stackoverflow.com/questions/72079271/how-to-make-responsive-an-input-field-with-bootstrap-or-css
   );
 }
 

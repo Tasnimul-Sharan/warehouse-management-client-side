@@ -9,7 +9,7 @@ const Inventories = () => {
     <div className="container">
       <h1>Inventory Section</h1>
       <div className="row">
-        {inventories.map((inventory) => (
+        {inventories.slice(0, 6).map((inventory) => (
           <Inventory key={inventory._id} inventory={inventory}></Inventory>
         ))}
       </div>
