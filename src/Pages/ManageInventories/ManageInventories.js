@@ -21,15 +21,14 @@ const ManageInventories = () => {
     }
   };
   return (
-    <div className="row">
-      {inventories.map((inventory) => (
-        <div
-          className="g-5 col-sm-12 col-md-6 col-lg-3 mb-3"
-          key={inventory._id}
-          inventory={inventory}
-        >
-          {/* <div className="row"> */}
-          <div>
+    <div className="container">
+      <div className="row">
+        {inventories.map((inventory) => (
+          <div
+            className="g-5 col-sm-12 col-md-6 col-lg-3 mb-3"
+            key={inventory._id}
+            inventory={inventory}
+          >
             <Card style={{ width: "18rem" }}>
               <Card.Img variant="top" src={inventory.image} />
               <Card.Body>
@@ -47,9 +46,8 @@ const ManageInventories = () => {
               </Card.Body>
             </Card>
           </div>
-          {/* </div> */}
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
