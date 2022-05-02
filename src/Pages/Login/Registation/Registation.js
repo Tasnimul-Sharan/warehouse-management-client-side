@@ -60,7 +60,10 @@ const Registation = () => {
   return (
     <div>
       <h1>Registation</h1>
-      <Form className="container w-25 text-start" onSubmit={handleRegister}>
+      <Form
+        className="container shadow-lg p-5 w-25 text-start"
+        onSubmit={handleRegister}
+      >
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Enter Name</Form.Label>
           <Form.Control
@@ -101,7 +104,6 @@ const Registation = () => {
         </Link>
       </p>
       <SocialLogin />
-      <ToastContainer />
     </div>
   );
 };

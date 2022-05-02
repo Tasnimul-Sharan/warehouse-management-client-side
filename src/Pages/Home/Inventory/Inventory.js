@@ -13,7 +13,7 @@ const Item = ({ inventory }) => {
     inventory;
   return (
     <div className="g-5 col-sm-12 col-md-6 col-lg-4 mb-3">
-      <Card style={{ width: "18rem" }}>
+      <Card className="shadow-lg" style={{ width: "18rem" }}>
         <Card.Img variant="top" src={image} />
         <Card.Body>
           <Card.Title>{name}</Card.Title>

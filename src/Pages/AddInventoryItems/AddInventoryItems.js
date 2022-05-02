@@ -1,5 +1,6 @@
 import axios from "axios";
 import React from "react";
+import { Form } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
@@ -18,9 +19,9 @@ const AddInventoryItems = () => {
   };
 
   return (
-    <div className="row w-25 mx-auto">
-      <form
-        className="d-flex flex-column my-5 col-sm-12 col-md-6"
+    <div className="w-25 mx-auto container-fluid">
+      <Form
+        className="from-group shadow-lg  p-5 d-flex flex-column my-5"
         onSubmit={handleSubmit(onSubmit)}
       >
         <input
@@ -76,7 +77,7 @@ const AddInventoryItems = () => {
           type="submit"
           value="Add new item"
         />
-      </form>
+      </Form>
       <ToastContainer />
     </div>
   );

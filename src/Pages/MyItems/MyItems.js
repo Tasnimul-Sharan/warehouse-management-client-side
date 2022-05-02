@@ -22,15 +22,6 @@ const MyItems = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure");
     if (proceed) {
-      //   fetch(`http://localhost:5000/item/${id}`, {
-      //     method: "DELETE",
-      //   })
-      //     .then((res) => res.json())
-      //     .then((data) => {
-      //       console.log(data);
-      //       const remaining = items.filter((inventory) => inventory._id !== id);
-      //       setItems(remaining);
-      //     });
       axios.delete(`http://localhost:5000/item/${id}`).then((res) => {
         const { data } = res;
         console.log(data);

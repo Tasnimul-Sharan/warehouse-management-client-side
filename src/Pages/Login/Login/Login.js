@@ -5,11 +5,10 @@ import {
   useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import auth from "../../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
 import SocialLogin from "./SocialLogin/SocialLogin";
-import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -54,10 +53,14 @@ const Login = () => {
   return (
     <div>
       <h1>Login</h1>
-      <Form onSubmit={handleLogin} className="container w-50 text-start">
+      <Form
+        onSubmit={handleLogin}
+        className="container shadow-lg p-5 container-fluid w-50 text-start form-group"
+      >
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
+            class="form-control"
             type="email"
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter email"
@@ -93,7 +96,6 @@ const Login = () => {
           Reset Password
         </Button>
       </p>
-      <ToastContainer />
       <SocialLogin />
     </div>
   );

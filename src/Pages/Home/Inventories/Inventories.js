@@ -14,7 +14,7 @@ const Inventories = () => {
         ))}
       </div>
       <Link to="/manageinventory">
-        <button className="btn btn-outline-primary">Manage Items</button>
+        <button className="btn btn-primary">Manage Items</button>
       </Link>
     </div>
   );

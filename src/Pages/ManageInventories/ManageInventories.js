@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import useInventories from "../../Hooks/useInventories/useInventories";
 
 const ManageInventories = () => {
@@ -29,7 +30,7 @@ const ManageInventories = () => {
             key={inventory._id}
             inventory={inventory}
           >
-            <Card style={{ width: "18rem" }}>
+            <Card className="shadow-lg" style={{ width: "18rem" }}>
               <Card.Img variant="top" src={inventory.image} />
               <Card.Body>
                 <Card.Title>{inventory.name}</Card.Title>
@@ -48,6 +49,9 @@ const ManageInventories = () => {
           </div>
         ))}
       </div>
+      <Link to="/addinventory">
+        <button className="btn btn-primary">Add a new inventory</button>
+      </Link>
     </div>
   );
 };

@@ -16,10 +16,6 @@ const RequireAuth = ({ children }) => {
     <Navigate to="/login" state={{ from: location }} replace />;
   }
 
-  // if (error) {
-  //   console.error(error);
-  // }
-
   return children;
 };
 
