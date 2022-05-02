@@ -1,78 +1,64 @@
 import { useForm } from "react-hook-form";
-import React, { useEffect, useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useParams } from "react-router-dom";
-import auth from "../../../firebase.init";
 import useInventoryDetails from "../../../Hooks/useInventoryDetails/useInventoryDetails";
 import { Button, Card } from "react-bootstrap";
-import axios from "axios";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init";
 
 const InventoryDetails = () => {
   const { inventoryId } = useParams();
   const [inventory, setInventory] = useInventoryDetails(inventoryId);
-  // const [user] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
   const handleDelivered = (id) => {
-    // useEffect(() => {
+    console.log(id);
     fetch(`http://localhost:5000/management/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
       },
+      body: JSON.parse(id),
     })
       .then((res) => res.json())
       .then((data) => {
-        // const { data } = res;
         console.log(data);
         let quantity = 0;
-        const exists = inventory.filter((invent) => invent._id === id);
-        if (!exists) {
-          quantity = quantity - 1;
+        const delivered = inventory.filter((invent) => invent._id !== id);
+        if (delivered) {
+          quantity = inventory.quantity - 1;
         }
         setInventory(quantity);
       });
-    // }, [inventoryId]);
   };
 
-  //   // let new = [];
-  //   if (!exists) {
-  //     selectedItem.quantity = exists.quantity - 1;
-  //     // new = [...inventory, selectedItem];
-  //     setInventory(selectedItem.quantity);
-  //   } else {
-  //     const rest = inventory?.filter((invent) => invent._id !== selectedItem);
-  //     exists.quantity = exists.quantity.value;
-  //     // new = [...res, exists];\
+  //   Quantity এক-এক করে কমাতে হবে। আপনার পূর্বের Quantity থেকে ১ বিয়োগ করে দিবেন তারপর এই updated quantity কে API Call করে PUT Method এর মাধ্যমে backend এ পাঠিয়ে দিবেন এবং ওই নির্দিষ্ট Collection এর মাধ্যমে MongoDB তে পাঠিয়ে দিবেন।তাহলে Database এ Quantity update হয়ে যাবে।
 
-  //     setInventory(...rest, exists.quantity);
-  //   }
-  // };
+  // *****************
+
+  // আগের যে নম্বর টা আছে সেটা থেকে 1 বিয়োগ করে দিবেন, এরপর সেই ভ্যালু টা একটা api কল এর মাধ্যমে backend এ পাঠিয়ে ডাটাবেস এ আপডেট করে দিবেন।
 
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
     console.log(data);
-    //in the backend place you have to use get.put for delivered and restock
-    // if (user) console.log(user);
 
-    // let quantity = 0;
-
-    // const handleAddToCart = (selectedProduct) =>{
-    //   console.log(selectedProduct);
-    //   let newCart = [];
-    //   const exists = cart.find(product => product._id === selectedProduct._id);
-    //   if(!exists){
-    //       selectedProduct.quantity = 1;
-    //       newCart = [...cart, selectedProduct];
-    //   }
-    //   else{
-    //       const rest = cart.filter(product => product._id !== selectedProduct._id);
-    //       exists.quantity = exists.quantity + 1;
-    //       newCart = [...rest, exists];
-    //   }
-
-    //   setCart(newCart);
-    // addToDb(selectedProduct._id);
+    fetch(`http://localhost:5000/management/${data}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.parse(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        let quantity = 0;
+        const restock = inventory.filter((invent) => invent._id === data);
+        if (restock) {
+          quantity = inventory.quantity + 1;
+        }
+        setInventory(quantity);
+      });
   };
 
   return (
@@ -97,7 +83,7 @@ const InventoryDetails = () => {
             </Card.Body>
           </Card>
         </div>
-        <div className="w-50 mx-auto col-lg-6">
+        <div className="w-50 mx-auto col-lg-6 my-5">
           <h1>Restock the items</h1>
           <form
             className="d-flex flex-column"
@@ -105,11 +91,15 @@ const InventoryDetails = () => {
           >
             <input
               placeholder="Put a quantity"
-              // value={inventory?.quantity.current.value}
+              // value="quantity"
               type="number"
               {...register("quantity")}
             />
-            <input type="submit" value="restock" />
+            <input
+              className="btn btn-outline-primary"
+              type="submit"
+              value="restock"
+            />
           </form>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import {
@@ -42,12 +43,27 @@ const Login = () => {
     return <Loading />;
   }
 
-  const handleLogin = (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
     if (email !== password) {
       setError("Please Enter an Valid Email or Password");
     }
-    signInWithEmailAndPassword(email, password);
+    await signInWithEmailAndPassword(email, password);
+
+    const { data } = await axios.post("http://localhost:5000/login", { email });
+    console.log(data);
+    localStorage.setItem("accessToken", data.accessToken);
+    // fetch("http://localhost:5000/login", {
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(email),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //   });
   };
 
   return (
@@ -60,8 +76,9 @@ const Login = () => {
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
-            class="form-control"
+            className="form-control"
             type="email"
+            // value={email.value}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter email"
           />
@@ -70,6 +87,7 @@ const Login = () => {
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
+            // value={password.value}
             onChange={(e) => setPassword(e.target.value)}
             type="password"
             placeholder="Password"
