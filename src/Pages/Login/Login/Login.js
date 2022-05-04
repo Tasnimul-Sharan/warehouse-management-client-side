@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import {
+  useAuthState,
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
@@ -68,7 +69,6 @@ const Login = () => {
 
   return (
     <div>
-      <h1>Login</h1>
       <Form
         onSubmit={handleLogin}
         className="container shadow-lg p-5 container-fluid w-50 text-start form-group"

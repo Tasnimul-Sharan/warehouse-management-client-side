@@ -24,8 +24,8 @@ const InventoryDetails = () => {
         console.log(data);
         let quantity = 0;
         const delivered = inventory.filter((invent) => invent._id !== id);
-        if (delivered) {
-          quantity = inventory.quantity - 1;
+        if (!delivered) {
+          quantity = quantity - parseInt(inventory?.quantity);
         }
         setInventory(quantity);
       });

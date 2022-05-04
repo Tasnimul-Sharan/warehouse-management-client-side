@@ -67,6 +67,7 @@ function App() {
     </div>
     // https://stackoverflow.com/questions/72079271/how-to-make-responsive-an-input-field-with-bootstrap-or-css
   );
+  // https://img.freepik.com/free-photo/portrait-successful-businessman-manager-ceo-holding-tablet-walking-through-warehouse-storage-area-looking-towards-shelves_342744-1499.jpg?w=740
 }
 
 export default App;

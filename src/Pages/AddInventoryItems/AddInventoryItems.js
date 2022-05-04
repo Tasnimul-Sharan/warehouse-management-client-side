@@ -19,14 +19,14 @@ const AddInventoryItems = () => {
   };
 
   return (
-    <div className="w-25 mx-auto container-fluid">
+    <div className="w-25 mx-auto container-fluid row">
       <Form
-        className="from-group shadow-lg  p-5 d-flex flex-column my-5"
+        className="from-group shadow-lg col-lg-12 col-md-12 p-5 d-flex flex-column my-5"
         onSubmit={handleSubmit(onSubmit)}
       >
         <input
           placeholder="Enter Name"
-          className="mb-2"
+          className="mb-2 from-control"
           value={user.displayName}
           type="text"
           {...register("user name")}

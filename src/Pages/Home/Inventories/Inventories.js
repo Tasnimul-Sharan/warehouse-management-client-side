@@ -8,7 +8,7 @@ const Inventories = () => {
   return (
     <div className="container">
       <h1>Inventory Section</h1>
-      <div className="row">
+      <div className="row  ms-2">
         {inventories.slice(0, 6).map((inventory) => (
           <Inventory key={inventory._id} inventory={inventory}></Inventory>
         ))}

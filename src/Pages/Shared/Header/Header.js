@@ -4,7 +4,7 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../../firebase.init";
-// import logo from "../../../images/logo.png";
+import logo from "../../../images/logo.png";
 import "./Header.css";
 
 const Header = () => {
@@ -15,12 +15,12 @@ const Header = () => {
   };
 
   return (
-    <div className="bg">
+    <div className=" sticky-top">
       <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
         <Container>
           <Navbar.Brand as={Link} to="/">
-            <span>Tasnim Electronics</span>
-            {/* <img src={logo} width={"50px"} alt="" /> */}
+            <img src={logo} width={"60px"} alt="" />
+            <span>The Gadget Zone</span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
