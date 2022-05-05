@@ -26,7 +26,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/inventory/:inventoryId" element={<Inventories />} />
         <Route
-          path="/details/:inventoryId"
+          path="details/:inventoryId"
           element={
             <RequireAuth>
               <InventoryDetails />
@@ -34,7 +34,7 @@ function App() {
           }
         />
         <Route
-          path="/addinventory"
+          path="addinventory"
           element={
             <RequireAuth>
               <AddInventoryItems />
@@ -42,7 +42,7 @@ function App() {
           }
         />
         <Route
-          path="/manageinventory"
+          path="manageinventory"
           element={
             <RequireAuth>
               <ManageInventories />
@@ -50,7 +50,7 @@ function App() {
           }
         />
         <Route
-          path="/myitems"
+          path="myitems"
           element={
             <RequireAuth>
               <MyItems />
@@ -67,7 +67,6 @@ function App() {
     </div>
     // https://stackoverflow.com/questions/72079271/how-to-make-responsive-an-input-field-with-bootstrap-or-css
   );
-  // https://img.freepik.com/free-photo/portrait-successful-businessman-manager-ceo-holding-tablet-walking-through-warehouse-storage-area-looking-towards-shelves_342744-1499.jpg?w=740
 }
 
 export default App;

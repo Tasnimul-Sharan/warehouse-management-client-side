@@ -1,18 +1,25 @@
 import React from "react";
-import { Carousel } from "react-bootstrap";
+import Banner from "../Banner/Banner";
+// import { Carousel } from "react-bootstrap";
 import Inventories from "../Inventories/Inventories";
-import Banner1 from "../../../images/Banner1.jpg";
-import Banner2 from "../../../images/Banner2.jpg";
-import Banner3 from "../../../images/Banner3.jpg";
+// import Banner1 from "../../../images/Banner1.jpg";
+// import Banner2 from "../../../images/Banner2.jpg";
+// import Banner3 from "../../../images/Banner3.jpg";
 import Suppliers from "../Suppliers/Suppliers";
+import WhyUs from "../WhyUs/WhyUs";
 
 const Home = () => {
   return (
-    <section className="container">
+    <section>
       <div>
-        <Carousel fade variant="dark">
+        <Banner />
+        {/* <Carousel fade variant="dark">
           <Carousel.Item>
-            <img className="d-block w-100" src={Banner1} alt="First slide" />
+            <img
+              className="d-block w-100 img-fluid"
+              src={Banner1}
+              alt="First slide"
+            />
             <Carousel.Caption>
               <h5>First slide label</h5>
               <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
@@ -34,10 +41,13 @@ const Home = () => {
               </p>
             </Carousel.Caption>
           </Carousel.Item>
-        </Carousel>
+        </Carousel> */}
       </div>
       <div>
         <Inventories />
+      </div>
+      <div>
+        <WhyUs />
       </div>
       <div>
         <Suppliers />

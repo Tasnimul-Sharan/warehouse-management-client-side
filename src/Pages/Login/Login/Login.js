@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import {
-  useAuthState,
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
@@ -54,17 +53,6 @@ const Login = () => {
     const { data } = await axios.post("http://localhost:5000/login", { email });
     console.log(data);
     localStorage.setItem("accessToken", data.accessToken);
-    // fetch("http://localhost:5000/login", {
-    //   method: "POST",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(email),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //   });
   };
 
   return (
@@ -78,7 +66,6 @@ const Login = () => {
           <Form.Control
             className="form-control"
             type="email"
-            // value={email.value}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter email"
           />
