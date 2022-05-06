@@ -12,7 +12,12 @@ const Item = ({ inventory }) => {
   const { _id, name, image, description, price, quantity, SuplierName } =
     inventory;
   return (
-    <div className="g-5 col-sm-12 col-md-6 col-lg-4 mb-3">
+    <div
+      data-aos="fade-left"
+      data-aos-delay="100"
+      data-aos-duration="1000"
+      className="g-5 col-sm-12 col-md-6 col-lg-4 mb-3"
+    >
       <Card className="shadow-lg" style={{ width: "18rem" }}>
         <Card.Img variant="top" src={image} />
         <Card.Body>

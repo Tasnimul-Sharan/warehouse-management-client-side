@@ -3,21 +3,27 @@ import { useEffect, useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import Loading from "../Shared/Loading/Loading";
 
 const MyItems = () => {
   const [items, setItems] = useState([]);
-  const [user] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
 
   useEffect(() => {
     const getItems = async () => {
-      const email = user.email;
+      const email = user?.email;
       const { data } = await axios.get(
-        `http://localhost:5000/item?email=${email}`
+        `http://localhost:5000/item?email=${email}`,
+        {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
       );
       setItems(data);
     };
     getItems();
-  }, []);
+  }, [user]);
 
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure");
@@ -31,26 +37,30 @@ const MyItems = () => {
     }
   };
 
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <div className="container me-5">
-      <h1>my items : {items.length}</h1>
+      <h1>my items : {items?.length}</h1>
       <div className="row">
         {items.map((item) => (
           <div
             className="g-3 col-sm-12 col-md-6 col-lg-6 mb-3"
-            key={item._id}
+            key={item?._id}
             item={item}
           >
             <Card style={{ width: "20rem" }}>
-              <Card.Img variant="top" src={item.image} />
+              <Card.Img variant="top" src={item?.image} />
               <Card.Body>
-                <Card.Title>{item.name}</Card.Title>
-                <Card.Text>{item.description}</Card.Text>
-                <h5>{item.quantity}</h5>
-                <h5>{item.price}</h5>
-                <h5>{item.SuplierName}</h5>
+                <Card.Title>{item?.name}</Card.Title>
+                <Card.Text>{item?.description}</Card.Text>
+                <h5>{item?.quantity}</h5>
+                <h5>{item?.price}</h5>
+                <h5>{item?.SuplierName}</h5>
                 <Button
-                  onClick={() => handleDelete(item._id)}
+                  onClick={() => handleDelete(item?._id)}
                   variant="outline-danger"
                 >
                   Delete

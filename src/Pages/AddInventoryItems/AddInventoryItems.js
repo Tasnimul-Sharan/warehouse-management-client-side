@@ -12,6 +12,7 @@ const AddInventoryItems = () => {
   const onSubmit = (data) => {
     axios.post("http://localhost:5000/item", data).then((res) => {
       const { data } = res;
+      console.log(data);
       if (data) {
         toast("You have added a new item, Yeah!!!");
       }
@@ -27,7 +28,7 @@ const AddInventoryItems = () => {
         <input
           placeholder="Enter Name"
           className="mb-2 from-control"
-          value={user.displayName}
+          value={user?.displayName}
           type="text"
           {...register("user name")}
           required
@@ -36,7 +37,7 @@ const AddInventoryItems = () => {
           placeholder="Enter Email"
           className="mb-2"
           type="email"
-          value={user.email}
+          value={user?.email}
           {...register("email")}
         />
         <input
@@ -59,13 +60,13 @@ const AddInventoryItems = () => {
           placeholder="Item price"
           className="mb-2"
           type="number"
-          {...register("price", { min: 18, max: 99 })}
+          {...register("price")}
         />
         <input
           placeholder="Item quantity"
           className="mb-2"
           type="number"
-          {...register("quantity", { min: 18, max: 99 })}
+          {...register("quantity")}
         />
         <input
           placeholder="Supplier name"

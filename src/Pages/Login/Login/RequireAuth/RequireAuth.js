@@ -14,6 +14,9 @@ const RequireAuth = ({ children }) => {
 
   if (!user) {
     <Navigate to="/login" state={{ from: location }} replace />;
+    console.log("user is found", user);
+  } else {
+    console.log("user not found");
   }
 
   return children;

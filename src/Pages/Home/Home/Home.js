@@ -2,10 +2,10 @@ import React from "react";
 import Banner from "../Banner/Banner";
 // import { Carousel } from "react-bootstrap";
 import Inventories from "../Inventories/Inventories";
+import Reviews from "../Reviews/Reviews";
 // import Banner1 from "../../../images/Banner1.jpg";
 // import Banner2 from "../../../images/Banner2.jpg";
 // import Banner3 from "../../../images/Banner3.jpg";
-import Suppliers from "../Suppliers/Suppliers";
 import WhyUs from "../WhyUs/WhyUs";
 
 const Home = () => {
@@ -50,7 +50,7 @@ const Home = () => {
         <WhyUs />
       </div>
       <div>
-        <Suppliers />
+        <Reviews />
       </div>
     </section>
   );

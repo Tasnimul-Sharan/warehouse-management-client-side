@@ -4,12 +4,14 @@ import { useParams } from "react-router-dom";
 
 const useInventoryDetails = (inventoryId) => {
   // const { inventoryId } = useParams();
-  const [inventory, setInventory] = useState({});
+  const [inventory, setInventory] = useState([]);
+  const [reload, setReload] = useState(true);
+
   useEffect(() => {
     fetch(`http://localhost:5000/management/${inventoryId}`)
       .then((res) => res.json())
       .then((data) => setInventory(data));
-  }, [inventoryId]);
+  }, [inventoryId, reload]);
   return [inventory, setInventory];
 };
 
