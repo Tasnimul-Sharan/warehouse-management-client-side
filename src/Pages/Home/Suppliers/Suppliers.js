@@ -11,7 +11,7 @@ const Suppliers = () => {
   }, []);
   return (
     <div className="container my-5">
-      <div className="border-bottom border border-2 mx-auto border-primary">
+      <div className="border-bottom border-primary">
         <h3>Our Honorable Suppliers</h3>
       </div>
       <div className="row ms-2">

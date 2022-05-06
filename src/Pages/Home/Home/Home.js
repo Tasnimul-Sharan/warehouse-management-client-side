@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <section>
       <div>
-        <Banner />
+        {/* <Banner /> */}
         {/* <Carousel fade variant="dark">
           <Carousel.Item>
             <img

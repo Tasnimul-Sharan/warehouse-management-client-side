@@ -2,15 +2,10 @@
   font-size: 37px;
   background-color: #149ddd;
   border-radius: 50%;
-  border: 1px solid #149ddd;
   padding: 5px;
+  border: 1px solid #0889c5;
 }
 
-/* .services .icon-box:hover .icon {
-    background: #fff;
-  }
-  .services .icon-box:hover .icon i {
-    color: #149ddd; */
 .whyus .icon-box:hover .Fontawesome {
   background-color: #fff;
 }

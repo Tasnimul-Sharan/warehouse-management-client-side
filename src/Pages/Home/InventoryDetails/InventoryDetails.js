@@ -4,47 +4,54 @@ import useInventoryDetails from "../../../Hooks/useInventoryDetails/useInventory
 import { Button, Card } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
+import Loading from "../../Shared/Loading/Loading";
 import { useEffect, useState } from "react";
 import axios from "axios";
+// import { async } from "@firebase/util";
 
 const InventoryDetails = () => {
   const { inventoryId } = useParams();
   const [inventory, setInventory] = useInventoryDetails(inventoryId);
-  const [user] = useAuthState(auth);
-  const [invent, setInvent] = useState(0);
+  const [invent, setInvent] = useState({});
 
-  // const handleDelivered = (id) => {
-  //   console.log(id);
-  //   fetch(`http://localhost:5000/management/${id}`, {
-  //     method: "PUT",
-  //     headers: {
-  //       "content-type": "application/json",
-  //     },
-  //     body: JSON.parse(id),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       let quantity = 0;
-  //       const delivered = invent.filter((inven) => inven._id !== id);
-  //       if (delivered) {
-  //         inventory.quantity = parseInt(inventory.quantity) - 1;
-  //       }
-  //       setInvent(inventory.quantity);
-  //     });
-  // };
-  // useEffect(() => {
-  const getDelivered = async (id) => {
-    let quantity = 0;
-    quantity = parseInt(inventory.quantity) + 1;
-    const updateQuantity = { quantity };
-    const { data } = await axios.put(
-      `http://localhost:5000/management/${id}`,
-      updateQuantity
-    );
-    setInvent(data);
+  const handleDelivered = async () => {
+    // event.preventDefault();
+    // let quantity = 0;
+    const quantity = parseInt(inventory.quantity) - 1;
+    const updateQuantity = await { quantity };
+    console.log(updateQuantity);
+    fetch(`http://localhost:5000/management/${inventoryId}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updateQuantity),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setInvent(data);
+
+        // let quantity = 0;
+        // const delivered = invent?.filter((inven) => inven?._id !== inventoryId);
+        // if (delivered) {
+        //   // inventory.quantity = parseInt(inventory.quantity) - 1;
+        //   return <Loading />;
+        // }
+        // setInvent(delivered);
+      });
   };
-  getDelivered();
+  // useEffect(() => {
+  // const getDelivered = async (id) => {
+  //   let quantity = 0;
+  //   quantity = parseInt(inventory.quantity) + 1;
+  //   const updateQuantity = { quantity };
+  //   const { data } = await axios.put(
+  //     `http://localhost:5000/management/${id}`,
+  //     updateQuantity
+  //   );
+  //   setInvent(data);
+  // };
+  // getDelivered();
   // }, []);
 
   //   Quantity এক-এক করে কমাতে হবে। আপনার পূর্বের Quantity থেকে ১ বিয়োগ করে দিবেন তারপর এই updated quantity কে API Call করে PUT Method এর মাধ্যমে backend এ পাঠিয়ে দিবেন এবং ওই নির্দিষ্ট Collection এর মাধ্যমে MongoDB তে পাঠিয়ে দিবেন।তাহলে Database এ Quantity update হয়ে যাবে।
@@ -55,25 +62,30 @@ const InventoryDetails = () => {
 
   const { register, handleSubmit } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async () => {
+    // event.preventDefault();
+    // console.log(data);
+    const quantity = parseInt(inventory.quantity) + 1;
+    const restockQuantity = await { quantity };
+    console.log(restockQuantity);
 
-    fetch(`http://localhost:5000/management/${data}`, {
+    fetch(`http://localhost:5000/management/${inventoryId}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.parse(data),
+      body: JSON.stringify(restockQuantity),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        let quantity = 0;
-        const restock = inventory.filter((invent) => invent._id !== data);
-        if (restock) {
-          inventory.quantity = parseInt(inventory.quantity) + 1;
-        }
-        setInventory(quantity);
+        setInvent(data);
+
+        // let quantity = 0;
+        // const restock = inventory?.filter((invent) => invent._id !== data);
+        // if (restock) {
+        //   inventory.quantity = parseInt(inventory.quantity) + 1;
+        // }
+        // setInventory(quantity);
       });
   };
 
@@ -91,7 +103,7 @@ const InventoryDetails = () => {
               <h5>{inventory?.price}</h5>
               <h5>{inventory?.SuplierName}</h5>
               <Button
-                onClick={() => getDelivered(inventory._id)}
+                onClick={() => handleDelivered(inventory._id)}
                 variant="outline-primary"
               >
                 delivered
