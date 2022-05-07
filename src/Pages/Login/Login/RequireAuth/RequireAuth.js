@@ -7,16 +7,12 @@ import Loading from "../../../Shared/Loading/Loading";
 const RequireAuth = ({ children }) => {
   const [user, loading] = useAuthState(auth);
   const location = useLocation();
-
   if (loading) {
-    <Loading />;
+    return <Loading />;
   }
 
   if (!user) {
-    <Navigate to="/login" state={{ from: location }} replace />;
-    console.log("user is found", user);
-  } else {
-    console.log("user not found");
+    return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
   return children;

@@ -8,10 +8,11 @@ import {
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import auth from "../../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
 import SocialLogin from "../Login/SocialLogin/SocialLogin";
+import "./Registation.css";
 
 const Registation = () => {
   const [email, setEmail] = useState("");
@@ -61,12 +62,12 @@ const Registation = () => {
     <div>
       <h1>Registation</h1>
       <Form
-        className="container shadow-lg p-5 w-25 text-start"
+        className="container shadow-lg p-5 text-start form-group"
         onSubmit={handleRegister}
       >
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Enter Name</Form.Label>
           <Form.Control
+            // className="form-control"
             onChange={(e) => setName(e.target.value)}
             type="text"
             placeholder="Enter Name"
@@ -74,8 +75,8 @@ const Registation = () => {
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
           <Form.Control
+            // className="form-control"
             onChange={(e) => setEmail(e.target.value)}
             type="email"
             placeholder="Enter email"
@@ -84,8 +85,8 @@ const Registation = () => {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
           <Form.Control
+            className="form-control"
             onChange={(e) => setPassword(e.target.value)}
             type="password"
             placeholder="Password"
@@ -93,11 +94,11 @@ const Registation = () => {
           />
         </Form.Group>
 
-        <Button variant="outline-primary w-25" type="submit">
+        <Button variant="outline-primary w-100" type="submit">
           Submit
         </Button>
       </Form>
-      <p>
+      <p className="m-3">
         Already have an account?
         <Link className="text-primary text-decoration-none" to="/login">
           Please Login

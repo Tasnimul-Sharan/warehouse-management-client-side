@@ -1,10 +1,52 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
 import img from "../../images/Sharan.jpg.jpg";
 
 const About = () => {
+  const [suppliers, setSupplier] = useState([]);
+  useEffect(() => {
+    axios.get("suppliers.json").then((res) => {
+      const { data } = res;
+      setSupplier(data);
+    });
+  }, []);
   return (
-    <div className="container my-5">
+    <section>
+      <div className="bg-primary text-white mt-1 p-5">
+        <h1>
+          About <br /> The Gadget Zone
+        </h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab maxime
+          ullam accusamus perspiciatis saepe similique sit autem iure corporis
+          ducimus repudiandae consequuntur nemo necessitatibus impedit vel rem,
+          excepturi ut repellendus.
+        </p>
+      </div>
+      <div className="container mt-3">
+        <h1>Our Honorable suppliers</h1>
+        <div className="row ms-2">
+          {suppliers.map((supplier) => (
+            <div
+              className="g-5 col-sm-12 col-md-6 col-lg-4 mb-3"
+              key={supplier._id}
+              supplier={supplier}
+            >
+              <Card style={{ width: "18rem" }}>
+                <Card.Img variant="top" src={supplier?.image} />
+                <Card.Body>
+                  <Card.Title>{supplier?.name}</Card.Title>
+                  <h5>{supplier?.address}</h5>
+                  <h5>{supplier?.age}</h5>
+                </Card.Body>
+              </Card>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* <div className="container my-5">
       <div className="ms-3">
         <Card className="shadow-lg" style={{ width: "20rem" }}>
           <Card.Img variant="top" src={img} />
@@ -24,7 +66,8 @@ const About = () => {
           </Card.Body>
         </Card>
       </div>
-    </div>
+    </div> */}
+    </section>
   );
 };
 

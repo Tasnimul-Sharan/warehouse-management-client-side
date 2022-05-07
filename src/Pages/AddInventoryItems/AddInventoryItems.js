@@ -5,6 +5,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
 import auth from "../../firebase.init";
+import "./AddInventoryItems.css";
 
 const AddInventoryItems = () => {
   const { register, handleSubmit } = useForm();
@@ -20,9 +21,10 @@ const AddInventoryItems = () => {
   };
 
   return (
-    <div className="w-25 mx-auto container-fluid row">
+    <div className="form-group mx-auto container-fluid row my-5">
+      <h1>Add a new item</h1>
       <Form
-        className="from-group shadow-lg col-lg-12 col-md-12 p-5 d-flex flex-column my-5"
+        className="shadow-lg p-5 d-flex flex-column"
         onSubmit={handleSubmit(onSubmit)}
       >
         <input

@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 import auth from "../../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
 import SocialLogin from "./SocialLogin/SocialLogin";
+import "./Login.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -57,12 +58,12 @@ const Login = () => {
 
   return (
     <div>
+      <h1>Login</h1>
       <Form
         onSubmit={handleLogin}
-        className="container shadow-lg p-5 container-fluid w-50 text-start form-group"
+        className="container shadow-lg p-5 form-group  text-start "
       >
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
           <Form.Control
             className="form-control"
             type="email"
@@ -72,23 +73,22 @@ const Login = () => {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
           <Form.Control
-            // value={password.value}
             onChange={(e) => setPassword(e.target.value)}
             type="password"
             placeholder="Password"
           />
         </Form.Group>
         <p className="text-danger">{error}</p>
-        <Button variant="outline-primary" type="submit">
+        <Button variant="outline-primary w-100" type="submit">
           Login
         </Button>
       </Form>
-      <p>
+      <p className="m-3">
         Don't have any account?
         <Link className="text-primary text-decoration-none" to="/registation">
-          Please Register
+          <Button variant="success">Create a new account</Button>
+          {/* Please Register */}
         </Link>
       </p>
       <p>
