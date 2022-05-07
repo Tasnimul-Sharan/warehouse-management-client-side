@@ -56,7 +56,38 @@ const Blogs = () => {
             <Accordion.Body>
               1.SQL databases are primarily called as Relational Databases
               (RDBMS), whereas NoSQL database are primarily called as
-              non-relational or distributed database.
+              non-relational or distributed database. <br />
+              2.SQL databases defines and manipulates data based structured
+              query language (SQL). Seeing from a side this language is
+              extremely powerful. SQL is one of the most versatile and
+              widely-used options available which makes it a safe choice
+              especially for great complex queries. But from other side it can
+              be restrictive.And a NoSQL database has dynamic schema for
+              unstructured data. Data is stored in many ways which means it can
+              be document-oriented, column-oriented, graph-based or organized as
+              a KeyValue store. This flexibility means that documents can be
+              created without having defined structure first. Also each document
+              can have its own unique structure. The syntax varies from database
+              to database, and you can add fields as you go. <br />
+              3.In almost all situations SQL databases are vertically scalable.
+              This means that you can increase the load on a single server by
+              increasing things like RAM, CPU or SSD.But on the other hand NoSQL
+              databases are horizontally scalable.This means that you handle
+              more traffic by sharding, or adding more servers in your NoSQL
+              database. It is similar to adding more floors to the same building
+              versus adding more buildings to the neighborhood. Thus NoSQL can
+              ultimately become larger and more powerful, making these databases
+              the preferred choice for large or ever-changing data sets. <br />
+              4.SQL databases are table-based on the other hand NoSQL databases
+              are either key-value pairs, document-based, graph databases or
+              wide-column stores. This makes relational SQL databases a better
+              option for applications that require multi-row transactions such
+              as an accounting system or for legacy systems that were built for
+              a relational structure. <br />
+              5.SQL databases follow ACID properties (Atomicity, Consistency,
+              Isolation and Durability) whereas the NoSQL database follows the
+              Brewers CAP theorem (Consistency, Availability and Partition
+              tolerance).
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="3">
@@ -75,16 +106,14 @@ const Blogs = () => {
               For example, a claim may assert who issued the token, how long it
               is valid for, or what permissions the client has been granted. A
               JWT is a string made up of three parts, separated by dots (.), and
-              serialized using base64. In the most common serialization format,
-              compact serialization, the JWT looks something like this:
-              xxxxx.yyyyy.zzzzz. Once decoded, you will get two JSON strings:
-              1.The header and the payload. 2.The signature. The JOSE (JSON
-              Object Signing and Encryption) header contains the type of token —
-              JWT in this case — and the signing algorithm. The payload contains
-              the claims. This is displayed as a JSON string, usually containing
-              no more than a dozen fields to keep the JWT compact. This
-              information is typically used by the server to verify that the
-              user has permission to perform the action they are requesting.
+              serialized using base64.Once decoded, you will get two JSON
+              strings: 1.The header and the payload. 2.The signature. The JOSE
+              (JSON Object Signing and Encryption) header contains the type of
+              token — JWT in this case — and the signing algorithm. The payload
+              contains the claims. This is displayed as a JSON string, usually
+              containing no more than a dozen fields to keep the JWT compact.
+              This information is typically used by the server to verify that
+              the user has permission to perform the action they are requesting.
               There are no mandatory claims for a JWT, but overlaying standards
               may make claims mandatory. For example, when using JWT as bearer
               access token under OAuth2.0, iss, sub, aud, and exp must be

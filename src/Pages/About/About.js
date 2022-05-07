@@ -16,7 +16,12 @@ const About = () => {
         <h1>
           About <br /> The Gadget Zone
         </h1>
-        <p>The Gadget zone is kind of Warehouse</p>
+        <p>
+          The Gadget zone is kind of Electronics Warehouse.We provide Electronic
+          gadgets in our warehouse like computer, laptop, tv, smartphone, drone,
+          microwave, Refrigerator etc.We promiss about our product that, all the
+          products are world class.{" "}
+        </p>
       </div>
       <div className="container mt-3">
         <h1>Our Honorable suppliers</h1>
