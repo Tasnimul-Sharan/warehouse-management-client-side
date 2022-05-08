@@ -39,14 +39,20 @@ const Blogs = () => {
               Node. js is primarily used for non-blocking, event-driven servers,
               due to its single-threaded nature. It's used for traditional web
               sites and back-end API services, but was designed with real-time,
-              push-based architectures in mind. <br />
+              push-based architectures in mind.Node JS uses Asynchronous
+              programming. That's why, it does not wait for any task to be
+              completed.In the meantime,ready to handle the next request. That’s
+              why we use nodeJS. <br />
               NoSQL databases like MongoDB are a good choice when your data is
               document-centric and doesn’t fit well into the schema of a
               relational database, when you need to accommodate massive scale,
               when you are rapidly prototyping, and a few other use cases.
               MongoDB is the most popular of the new breed of non-relational
-              NoSQL databases. Specifically, it’s a document database, also
-              called a document-oriented database or a document store.
+              NoSQL databases. It is called the Document Oriented Database.
+              MongoDB stores a lot of data in JSON format. MongoDB's performance
+              is much faster than any RDBMS. MongoDB is designed to work with
+              Large Scale Data. It can work on multiple servers. MongoDB can
+              handle a large number of access requests easily.
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="2">

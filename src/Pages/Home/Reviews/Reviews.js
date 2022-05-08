@@ -16,7 +16,6 @@ const Reviews = () => {
       <h3 className="border-bottom border-primary ms-3">
         Our Honorable Customers <br /> What they say about us
       </h3>
-      {/* </div> */}
       <div className="row ms-2">
         {reviews.map((review) => (
           <Review key={review._id} review={review} />

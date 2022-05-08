@@ -22,7 +22,10 @@ const About = () => {
           The Gadget zone is kind of Electronics Warehouse.We provide Electronic
           gadgets in our warehouse like computer, laptop, tv, smartphone, drone,
           microwave, Refrigerator etc.We promiss about our product that, all the
-          products are well and good enough.{" "}
+          products are well and good enough.The Gadget zone has 20 years’
+          experience in the electronics industry, buying large quantities of
+          consumer Electronics from the manufacturer. Our power to buy this
+          stock in bulk means we are able to pass on great savings to you.{" "}
         </p>
       </div>
       <div className="container mt-3">

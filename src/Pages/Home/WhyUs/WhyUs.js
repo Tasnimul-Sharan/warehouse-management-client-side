@@ -2,10 +2,10 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBusinessTime,
-  faClockRotateLeft,
   faComputer,
   faFaceLaugh,
   faPhone,
+  faTruckFast,
   faUserSecret,
 } from "@fortawesome/free-solid-svg-icons";
 import "./WhyUs.css";
@@ -47,17 +47,14 @@ const WhyUs = () => {
             data-aos-duration="1000"
           >
             <div>
-              <FontAwesomeIcon
-                icon={faClockRotateLeft}
-                className="Fontawesome"
-              />
+              <FontAwesomeIcon icon={faBusinessTime} className="Fontawesome" />
             </div>
             <h5>
-              <span>Open/close</span>
+              <span>12 Month Warranty</span>
             </h5>
             <p>
-              Our Warehouse is 24 hours open.You can contract with us.And visite
-              anytime we are alwals here for you.
+              We stand by the quality of our products, which is why we our proud
+              to offer a 12 month guarantee on all products.
             </p>
           </div>
           <div
@@ -70,11 +67,12 @@ const WhyUs = () => {
               <FontAwesomeIcon icon={faFaceLaugh} className="Fontawesome" />
             </div>
             <h5>
-              <span>Make happy</span>
+              <span>Great Low Prices</span>
             </h5>
             <p>
-              We always try to make our customers be happy.We decrize our
-              product price for customers.And also give some gift too.
+              We always try to make our customers be happy.With our bulk buying
+              power of new stock, we are able can pass on great savings to you
+              across all of our products.And also give some gift too.
             </p>
           </div>
           <div
@@ -84,15 +82,16 @@ const WhyUs = () => {
             data-aos-duration="1000"
           >
             <div>
-              <FontAwesomeIcon icon={faBusinessTime} className="Fontawesome" />
+              <FontAwesomeIcon icon={faTruckFast} className="Fontawesome" />
             </div>
             <h5>
-              <span>Product Delivery</span>
+              <span>Free Delivery</span>
             </h5>
             <p>
-              We have made our product delivery system.Anyone will get products
-              in 24 hours.In this matter our suppliers are be so serious about
-              this.
+              We use a 2 person white glove delivery service to promise your
+              gadgets arrives promptly and with great care.Anyone will get
+              products in 24 hours.In this matter our suppliers are so serious
+              about this.
             </p>
           </div>
           <div
