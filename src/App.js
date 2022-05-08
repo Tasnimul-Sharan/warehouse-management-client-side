@@ -68,7 +68,6 @@ function App() {
       </Routes>
       <ToastContainer />
     </div>
-    // https://stackoverflow.com/questions/72079271/how-to-make-responsive-an-input-field-with-bootstrap-or-css
   );
 }
 
