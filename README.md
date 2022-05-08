@@ -1,10 +1,26 @@
-# Getting Started with Create React App
+# The Gadget Zone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[My live Website](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+#### A short description about The Gadget zone:
 
-In the project directory, you can run:
+This is a warehouse related website.Electronics product related.In this website first i have created a simple navbar.In the navbar there are home, gadget, blogs, about, my item, add item, manage item etc pages.
+in the home page there are five sections banner, inventory section, why to Choose , customers review, footer.In the gadget section you can see all the gadget item details.In the details page you will see delivered button when you click this button the product quantity will decrease and in the input field there has a button Restock when give an value in input field it will increase the quantity. In this website when you are login on this time you see product details and add items , the added items are show in my items .And all the items show in manage items , in the manage items and my items page there has a button Delete with this you can delete items.
+
+## My websites different features and functionality :
+
+- User admin panel
+- All inventory management system
+- create an add items , my items, manage items.
+
+* implement Delete button.
+* implement Delivered and Restock product Quantity.
+* implement email-password based authentication and one social authentication system.
+* implement jwt token in client side and verify it in server side.
+* Maked the full website responsive for mobile device and large device.
+* created two extra section one is customers review and second is why to choose us.
+* created Question and answer related blogs page.
+* created About us page .
 
 ### `npm start`
 
