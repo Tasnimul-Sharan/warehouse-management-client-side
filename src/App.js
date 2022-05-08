@@ -16,6 +16,9 @@ import Blogs from "./Pages/Blogs/Blogs";
 import { ToastContainer } from "react-toastify";
 import RequireAuth from "./Pages/Login/Login/RequireAuth/RequireAuth";
 import About from "./Pages/About/About";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 function App() {
   return (

@@ -9,18 +9,18 @@ in the home page there are five sections banner, inventory section, why to Choos
 
 ## My websites different features and functionality :
 
-- User admin panel
 - All inventory management system
-- create an add items , my items, manage items.
 
-* implement Delete button.
-* implement Delivered and Restock product Quantity.
-* implement email-password based authentication and one social authentication system.
-* implement jwt token in client side and verify it in server side.
-* Maked the full website responsive for mobile device and large device.
-* created two extra section one is customers review and second is why to choose us.
-* created Question and answer related blogs page.
-* created About us page .
+* created an add items, my items, manage items.
+* implemented Delete button.
+
+- implemented Delivered and Restock product Quantity.
+- implemented email-password based authentication and one social authentication system.
+- implemented jwt token in client side and verify it in server side.
+- Maked the full website responsive for mobile device and large device.
+- created two extra section one is customers review and second is why to choose us.
+- created Question and answer related blogs page.
+- created About us page.
 
 ### `npm start`
 

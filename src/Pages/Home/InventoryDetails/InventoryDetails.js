@@ -19,7 +19,9 @@ const InventoryDetails = () => {
   const [reload, setReload] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/management/${inventoryId}`)
+    fetch(
+      `https://intense-headland-97851.herokuapp.com/management/${inventoryId}`
+    )
       .then((res) => res.json())
       .then((data) => setInventory(data));
   }, [reload]);
@@ -30,13 +32,16 @@ const InventoryDetails = () => {
     const quantity = parseInt(inventory.quantity) - 1;
     const updateQuantity = { quantity };
     console.log(updateQuantity);
-    fetch(`http://localhost:5000/management/${inventoryId}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updateQuantity),
-    })
+    fetch(
+      `https://intense-headland-97851.herokuapp.com/management/${inventoryId}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateQuantity),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setReload(!reload);
@@ -56,7 +61,7 @@ const InventoryDetails = () => {
   //   quantity = parseInt(inventory.quantity) + 1;
   //   const updateQuantity = { quantity };
   //   const { data } = await axios.put(
-  //     `http://localhost:5000/management/${id}`,
+  //     `https://intense-headland-97851.herokuapp.com/management/${id}`,
   //     updateQuantity
   //   );
   //   setInvent(data);
@@ -81,13 +86,16 @@ const InventoryDetails = () => {
     const stockQuantity = { quantity };
     console.log(stockQuantity);
 
-    fetch(`http://localhost:5000/management/${inventoryId}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(stockQuantity),
-    })
+    fetch(
+      `https://intense-headland-97851.herokuapp.com/management/${inventoryId}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(stockQuantity),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

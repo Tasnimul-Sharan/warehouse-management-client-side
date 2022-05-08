@@ -5,10 +5,12 @@ import { Card } from "react-bootstrap";
 const About = () => {
   const [suppliers, setSupplier] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:5000/supplier").then((res) => {
-      const { data } = res;
-      setSupplier(data);
-    });
+    axios
+      .get("https://intense-headland-97851.herokuapp.com/supplier")
+      .then((res) => {
+        const { data } = res;
+        setSupplier(data);
+      });
   }, []);
   return (
     <section>

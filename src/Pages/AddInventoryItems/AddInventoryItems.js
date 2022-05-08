@@ -11,13 +11,15 @@ const AddInventoryItems = () => {
   const { register, handleSubmit } = useForm();
   const [user] = useAuthState(auth);
   const onSubmit = (data) => {
-    axios.post("http://localhost:5000/item", data).then((res) => {
-      const { data } = res;
-      console.log(data);
-      if (data) {
-        toast("You have added a new item, Yeah!!!");
-      }
-    });
+    axios
+      .post("https://intense-headland-97851.herokuapp.com/item", data)
+      .then((res) => {
+        const { data } = res;
+        console.log(data);
+        if (data) {
+          toast("You have added a new item, Yeah!!!");
+        }
+      });
   };
 
   return (

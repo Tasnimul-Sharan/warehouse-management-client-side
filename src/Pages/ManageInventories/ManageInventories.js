@@ -8,7 +8,7 @@ const ManageInventories = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure");
     if (proceed) {
-      fetch(`http://localhost:5000/management/${id}`, {
+      fetch(`https://intense-headland-97851.herokuapp.com/management/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -35,8 +35,8 @@ const ManageInventories = () => {
               <Card.Body>
                 <Card.Title>{inventory.name}</Card.Title>
                 <Card.Text>{inventory.description}</Card.Text>
-                <h5>{inventory.quantity}</h5>
-                <h5>{inventory.price}</h5>
+                <h5>quantity: {inventory.quantity}</h5>
+                <h5>price: {inventory.price}</h5>
                 <h5>{inventory.SuplierName}</h5>
                 <Button
                   onClick={() => handleDelete(inventory._id)}
