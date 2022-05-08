@@ -56,8 +56,8 @@ const MyItems = () => {
               <Card.Body>
                 <Card.Title>{item?.name}</Card.Title>
                 <Card.Text>{item?.description}</Card.Text>
-                <h5>{item?.quantity}</h5>
-                <h5>{item?.price}</h5>
+                <h5>quantity: {item?.quantity}</h5>
+                <h5>price: {item?.price}</h5>
                 <h5>{item?.SuplierName}</h5>
                 <Button
                   onClick={() => handleDelete(item?._id)}

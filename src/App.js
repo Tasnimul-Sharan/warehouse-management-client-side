@@ -4,7 +4,6 @@ import Home from "./Pages/Home/Home/Home";
 import Header from "./Pages/Shared/Header/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
-import Footer from "./Pages/Shared/Footer/Footer";
 import NotFound from "./Pages/Shared/NotFound/NotFound";
 import Inventories from "./Pages/Home/Inventories/Inventories";
 import Login from "./Pages/Login/Login/Login";
@@ -65,7 +64,6 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
       <ToastContainer />
-      <Footer />
     </div>
     // https://stackoverflow.com/questions/72079271/how-to-make-responsive-an-input-field-with-bootstrap-or-css
   );

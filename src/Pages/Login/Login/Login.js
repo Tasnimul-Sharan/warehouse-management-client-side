@@ -34,7 +34,8 @@ const Login = () => {
   const navigate = useNavigate();
 
   let location = useLocation();
-  const from = location.state?.from?.pathName || "/";
+  const from = location.state?.from?.pathname || "/";
+  console.log(from);
 
   if (user) {
     navigate(from, { replace: true });
@@ -51,7 +52,9 @@ const Login = () => {
     }
     await signInWithEmailAndPassword(email, password);
 
-    const { data } = await axios.post("http://localhost:5000/login", { email });
+    const { data } = await axios.post("http://localhost:5000/login", {
+      email,
+    });
     console.log(data);
     localStorage.setItem("accessToken", data.accessToken);
   };
@@ -61,11 +64,10 @@ const Login = () => {
       <h1>Login</h1>
       <Form
         onSubmit={handleLogin}
-        className="container shadow-lg p-5 form-group  text-start "
+        className="container shadow-lg p-5 form-group   text-start "
       >
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Control
-            className="form-control"
             type="email"
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter email"
@@ -85,10 +87,8 @@ const Login = () => {
         </Button>
       </Form>
       <p className="m-3">
-        Don't have any account?
         <Link className="text-primary text-decoration-none" to="/registation">
           <Button variant="success">Create a new account</Button>
-          {/* Please Register */}
         </Link>
       </p>
       <p>

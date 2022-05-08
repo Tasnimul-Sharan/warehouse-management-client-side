@@ -125,8 +125,8 @@ const WhyUs = () => {
               <span>Our Devices</span>
             </h5>
             <p>
-              Our Electronices devices are world class.Our every customers are
-              happy for that.
+              Our Electronices devices are world class.We stand behind our goods
+              and services and want you to be satisfied with them.
             </p>
           </div>
         </div>

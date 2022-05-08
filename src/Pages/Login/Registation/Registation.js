@@ -1,5 +1,3 @@
-// import { async } from "@firebase/util";
-// import { async } from "@firebase/util";
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import {
@@ -28,17 +26,18 @@ const Registation = () => {
   const navigate = useNavigate();
 
   let location = useLocation();
-  const from = location.state?.from?.pathName || "/";
+  const from = location.state?.from?.pathname || "/";
 
   if (user) {
     navigate(from, { replace: true });
+    console.log(user);
   }
 
   if (error) {
     console.error(error);
   }
 
-  if (loading || sending || updating) {
+  if (loading) {
     return <Loading />;
   }
 
@@ -67,7 +66,6 @@ const Registation = () => {
       >
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Control
-            // className="form-control"
             onChange={(e) => setName(e.target.value)}
             type="text"
             placeholder="Enter Name"
@@ -76,7 +74,6 @@ const Registation = () => {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Control
-            // className="form-control"
             onChange={(e) => setEmail(e.target.value)}
             type="email"
             placeholder="Enter email"
@@ -86,7 +83,6 @@ const Registation = () => {
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Control
-            className="form-control"
             onChange={(e) => setPassword(e.target.value)}
             type="password"
             placeholder="Password"

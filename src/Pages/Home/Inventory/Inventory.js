@@ -23,8 +23,8 @@ const Item = ({ inventory }) => {
         <Card.Body>
           <Card.Title>{name}</Card.Title>
           <Card.Text>{description}</Card.Text>
-          <h5>{quantity}</h5>
-          <h5>{price}</h5>
+          <h5>quantity: {quantity}</h5>
+          <h5>price: {price}</h5>
           <h5>{SuplierName}</h5>
           <Button
             onClick={() => navigateToDetails(_id)}
