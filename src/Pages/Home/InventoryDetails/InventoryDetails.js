@@ -1,18 +1,10 @@
-import { useForm } from "react-hook-form";
 import { Link, useParams } from "react-router-dom";
 import { Button, Card } from "react-bootstrap";
-import { useAuthState } from "react-firebase-hooks/auth";
-import auth from "../../../firebase.init";
-import Loading from "../../Shared/Loading/Loading";
+
 import { useEffect, useState } from "react";
-import axios from "axios";
-// import { reload } from "firebase/auth";
-// import { async } from "@firebase/util";
 
 const InventoryDetails = () => {
   const { inventoryId } = useParams();
-  // const [inventory] = useInventoryDetails(inventoryId);
-  // const [reload, setReload] = useState(true);
 
   const [inventory, setInventory] = useState([]);
   const [reload, setReload] = useState(true);
@@ -26,8 +18,6 @@ const InventoryDetails = () => {
   }, [reload]);
 
   const handleDelivered = async () => {
-    // event.preventDefault();
-    // let quantity = 0;
     const quantity = parseInt(inventory.quantity) - 1;
     const updateQuantity = { quantity };
     console.log(updateQuantity);

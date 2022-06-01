@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, CardGroup } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 const Item = ({ inventory }) => {
@@ -12,13 +12,16 @@ const Item = ({ inventory }) => {
   const { _id, name, image, description, price, quantity, SuplierName } =
     inventory;
   return (
-    <div
+    <CardGroup
       data-aos="fade-left"
       data-aos-delay="100"
       data-aos-duration="1000"
       className="g-5 col-sm-12 col-md-6 col-lg-4 mb-3"
     >
-      <Card className="shadow-lg" style={{ width: "18rem" }}>
+      <Card
+        className="shadow-lg bg-primary text-white"
+        style={{ width: "18rem" }}
+      >
         <Card.Img variant="top" src={image} />
         <Card.Body>
           <Card.Title>{name}</Card.Title>
@@ -26,15 +29,15 @@ const Item = ({ inventory }) => {
           <h5>quantity: {quantity}</h5>
           <h5>price: {price}</h5>
           <h5>{SuplierName}</h5>
-          <Button
-            onClick={() => navigateToDetails(_id)}
-            variant="outline-primary"
-          >
+        </Card.Body>
+        <Card.Footer className="border-0">
+          <Button onClick={() => navigateToDetails(_id)} variant="info">
             Update
           </Button>
-        </Card.Body>
+          {/* <small className="text-muted">Last updated 3 mins ago</small> */}
+        </Card.Footer>
       </Card>
-    </div>
+    </CardGroup>
   );
 };
 

@@ -67,7 +67,7 @@ const Login = () => {
       <h1>Login</h1>
       <Form
         onSubmit={handleLogin}
-        className="container shadow-lg p-5 form-group   text-start "
+        className="container shadow-lg p-5 w-50 form-group   text-start "
       >
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Control
