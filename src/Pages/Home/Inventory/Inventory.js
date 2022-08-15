@@ -18,10 +18,7 @@ const Item = ({ inventory }) => {
       data-aos-duration="1000"
       className="g-5 col-sm-12 col-md-6 col-lg-4 mb-3"
     >
-      <Card
-        className="shadow-lg bg-primary text-white"
-        style={{ width: "18rem" }}
-      >
+      <Card className="shadow-lg" style={{ width: "18rem" }}>
         <Card.Img variant="top" src={image} />
         <Card.Body>
           <Card.Title>{name}</Card.Title>
@@ -31,10 +28,12 @@ const Item = ({ inventory }) => {
           <h5>{SuplierName}</h5>
         </Card.Body>
         <Card.Footer className="border-0">
-          <Button onClick={() => navigateToDetails(_id)} variant="info">
+          <Button
+            onClick={() => navigateToDetails(_id)}
+            variant="outline-primary"
+          >
             Update
           </Button>
-          {/* <small className="text-muted">Last updated 3 mins ago</small> */}
         </Card.Footer>
       </Card>
     </CardGroup>

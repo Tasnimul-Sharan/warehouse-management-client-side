@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Table } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import MyItemRow from "../ManageInventories/MyItemRow";
 import Loading from "../Shared/Loading/Loading";
 
 const MyItems = () => {
@@ -44,34 +45,31 @@ const MyItems = () => {
   }
 
   return (
-    <div className="container me-5">
+    <div className="container-fluid">
       <h1>my items : {items?.length}</h1>
-      <div className="row">
-        {items.map((item) => (
-          <div
-            className="g-3 col-sm-12 col-md-6 col-lg-6 mb-3"
-            key={item?._id}
-            item={item}
-          >
-            <Card style={{ width: "20rem" }}>
-              <Card.Img variant="top" src={item?.image} />
-              <Card.Body>
-                <Card.Title>{item?.name}</Card.Title>
-                <Card.Text>{item?.description}</Card.Text>
-                <h5>quantity: {item?.quantity}</h5>
-                <h5>price: {item?.price}</h5>
-                <h5>{item?.SuplierName}</h5>
-                <Button
-                  onClick={() => handleDelete(item?._id)}
-                  variant="outline-danger"
-                >
-                  Delete
-                </Button>
-              </Card.Body>
-            </Card>
-          </div>
-        ))}
-      </div>
+
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>SuplierName</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {items.map((item) => (
+            <MyItemRow
+              key={item._id}
+              item={item}
+              handleDelete={handleDelete}
+            ></MyItemRow>
+          ))}
+        </tbody>
+      </Table>
     </div>
   );
 };

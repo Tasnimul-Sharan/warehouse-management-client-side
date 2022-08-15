@@ -15,7 +15,7 @@ in the home page there are five sections banner, inventory section, why to Choos
 * implemented Delete button.
 
 - implemented Delivered and Restock product Quantity.
-- implemented email-password based authentication and one social authentication system.
+- implemented firebase based authentication and one social authentication system.
 - implemented jwt token in client side and verify it in server side.
 - Maked the full website responsive for mobile device and large device.
 - created two extra section one is customers review and second is why to choose us.

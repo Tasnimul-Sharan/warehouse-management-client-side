@@ -6,7 +6,6 @@ const Blogs = () => {
     <div className="container my-5">
       <h5>Frequently Asked Questions and Answers</h5>
       <div className="my-5">
-        {/* <h1>blogs</h1> */}
         <Accordion>
           <Accordion.Item eventKey="0">
             <Accordion.Header>

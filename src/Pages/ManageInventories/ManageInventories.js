@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useInventories from "../../Hooks/useInventories/useInventories";
 
@@ -23,32 +23,41 @@ const ManageInventories = () => {
   };
   return (
     <div className="container-fluid">
-      <div className="row ms-3">
-        {inventories.map((inventory) => (
-          <div
-            className="g-2 col-sm-12 col-md-6 col-lg-3 mb-3"
-            key={inventory._id}
-            inventory={inventory}
-          >
-            <Card className="shadow-lg" style={{ width: "18rem" }}>
-              <Card.Img variant="top" src={inventory.image} />
-              <Card.Body>
-                <Card.Title>{inventory.name}</Card.Title>
-                <Card.Text>{inventory.description}</Card.Text>
-                <h5>quantity: {inventory.quantity}</h5>
-                <h5>price: {inventory.price}</h5>
-                <h5>{inventory.SuplierName}</h5>
+      <Table striped bordered hover size="sm">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>SuplierName</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {inventories.map((inventory) => (
+            <tr key={inventory._id} inventory={inventory}>
+              <td>
+                <img className="w-50 img-fluid" src={inventory.image} alt="" />
+              </td>
+              <td>{inventory.name}</td>
+              <td>{inventory.description}</td>
+              <td>{inventory.quantity}</td>
+              <td>{inventory.price}</td>
+              <td>{inventory.SuplierName}</td>
+              <td>
                 <Button
                   onClick={() => handleDelete(inventory._id)}
                   variant="outline-danger"
                 >
                   Delete
                 </Button>
-              </Card.Body>
-            </Card>
-          </div>
-        ))}
-      </div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
       <Link to="/addinventory">
         <button className="btn btn-primary">Add a new inventory</button>
       </Link>

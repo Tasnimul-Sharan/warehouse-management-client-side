@@ -27,7 +27,7 @@ const Banner = () => {
               the high street.
             </p>
             <Link to="/manageinventory">
-              <button className="btn btn-danger px-5">
+              <button className="btn btn-danger p-2">
                 See Gadgets
                 <FontAwesomeIcon className="ms-5" icon={faArrowRight} />
               </button>
@@ -50,7 +50,7 @@ const Banner = () => {
               business.
             </p>
             <Link to="/manageinventory">
-              <button className="btn btn-danger px-5">
+              <button className="btn btn-danger p-2">
                 See Gadgets
                 <FontAwesomeIcon className="ms-5" icon={faArrowRight} />
               </button>
@@ -72,7 +72,7 @@ const Banner = () => {
             </h1>
             <p>The new era of Electronics are starts now new devices.</p>
             <Link to="/manageinventory">
-              <button className="btn btn-danger px-5">
+              <button className="btn btn-danger p-2">
                 See Gadgets
                 <FontAwesomeIcon
                   className="ms-5 border rounded-5"

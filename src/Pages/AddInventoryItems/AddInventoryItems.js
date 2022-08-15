@@ -17,7 +17,7 @@ const AddInventoryItems = () => {
         const { data } = res;
         console.log(data);
         if (data) {
-          toast("You have added a new item, Yeah!!!");
+          toast.success("You have added a new item, Yeah!!!");
         }
       });
   };
@@ -75,7 +75,8 @@ const AddInventoryItems = () => {
         <input
           placeholder="Supplier name"
           className="mb-2"
-          {...register("supplier name")}
+          type="text"
+          {...register("SuplierName")}
         />
         <input
           className="btn btn-outline-primary"
