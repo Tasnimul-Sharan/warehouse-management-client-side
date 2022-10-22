@@ -18,7 +18,7 @@ const Banner = () => {
           data-aos-duration="1000"
           className="row m-5 d-flex align-items-center"
         >
-          <div className="col-lg-6 mb-3">
+          <div className="text-start col-lg-6 mb-3">
             <h1>
               Find your perfect Gadget <br /> At a lower price
             </h1>
@@ -34,7 +34,7 @@ const Banner = () => {
             </Link>
           </div>
           <div className="col-lg-6">
-            <img className="img-fluid w-100" src={Banner1} alt="" />
+            <img className="img-fluid w-75" src={Banner1} alt="" />
           </div>
         </div>
         <div
@@ -43,7 +43,7 @@ const Banner = () => {
           data-aos-duration="1000"
           className="row m-5 d-flex align-items-center"
         >
-          <div className="col-lg-6 mb-3">
+          <div className="text-start col-lg-6 mb-3">
             <h1>Create your own Electonic gadgets business</h1>
             <p>
               We have a huge Quantity of gadgets so anyone start his own
@@ -57,7 +57,7 @@ const Banner = () => {
             </Link>
           </div>
           <div className="col-lg-6">
-            <img className="img-fluid w-100" src={Banner2} alt="" />
+            <img className="img-fluid w-75" src={Banner2} alt="" />
           </div>
         </div>
         <div
@@ -66,7 +66,7 @@ const Banner = () => {
           data-aos-duration="1000"
           className="row m-5 d-flex align-items-center"
         >
-          <div className="col-lg-6 mb-3">
+          <div className="text-start col-lg-6 mb-3">
             <h1>
               Experience the latest <br /> In upscaling Technology
             </h1>

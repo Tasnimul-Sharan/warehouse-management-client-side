@@ -18,9 +18,7 @@ const WhyUs = () => {
   return (
     <section className="whyus container my-5">
       <div>
-        <h3 className="border-bottom border-primary ms-3">
-          Why to Choose Our Warehouse
-        </h3>
+        <h3 className="ms-3">Why to Choose Our Warehouse</h3>
         <div className="row">
           <div
             className="col-lg-4 g-5 col-md-6 shadow-lg p-3 icon-box"

@@ -13,7 +13,7 @@ const Reviews = () => {
   }, []);
   return (
     <div className="container my-5">
-      <h3 className="border-bottom border-primary ms-3">
+      <h3 className="ms-3">
         Our Honorable Customers <br /> What they say about us
       </h3>
       <div className="row ms-2">
