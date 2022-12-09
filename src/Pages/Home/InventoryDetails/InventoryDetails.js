@@ -11,7 +11,7 @@ const InventoryDetails = () => {
 
   useEffect(() => {
     fetch(
-      `https://intense-headland-97851.herokuapp.com/management/${inventoryId}`
+      `https://warehouse-management-server-side-six.vercel.app/management/${inventoryId}`
     )
       .then((res) => res.json())
       .then((data) => setInventory(data));
@@ -22,7 +22,7 @@ const InventoryDetails = () => {
     const updateQuantity = { quantity };
     console.log(updateQuantity);
     fetch(
-      `https://intense-headland-97851.herokuapp.com/management/${inventoryId}`,
+      `https://warehouse-management-server-side-six.vercel.app/management/${inventoryId}`,
       {
         method: "PUT",
         headers: {
@@ -45,7 +45,7 @@ const InventoryDetails = () => {
     console.log(stockQuantity);
 
     fetch(
-      `https://intense-headland-97851.herokuapp.com/management/${inventoryId}`,
+      `https://warehouse-management-server-side-six.vercel.app/management/${inventoryId}`,
       {
         method: "PUT",
         headers: {

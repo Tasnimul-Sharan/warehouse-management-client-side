@@ -4,7 +4,7 @@ const useInventories = () => {
   const [inventories, setInventories] = useState([]);
 
   useEffect(() => {
-    fetch("https://intense-headland-97851.herokuapp.com/management")
+    fetch("https://warehouse-management-server-side-six.vercel.app/management")
       .then((res) => res.json())
       .then((data) => setInventories(data));
   }, []);

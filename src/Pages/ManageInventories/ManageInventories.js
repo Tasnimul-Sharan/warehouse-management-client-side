@@ -8,9 +8,12 @@ const ManageInventories = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure");
     if (proceed) {
-      fetch(`https://intense-headland-97851.herokuapp.com/management/${id}`, {
-        method: "DELETE",
-      })
+      fetch(
+        `https://warehouse-management-server-side-six.vercel.app/management/${id}`,
+        {
+          method: "DELETE",
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log(data);

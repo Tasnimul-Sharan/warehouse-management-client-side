@@ -53,7 +53,7 @@ const Login = () => {
     await signInWithEmailAndPassword(email, password);
 
     const { data } = await axios.post(
-      "https://intense-headland-97851.herokuapp.com/login",
+      "https://warehouse-management-server-side-six.vercel.app/login",
       {
         email,
       }

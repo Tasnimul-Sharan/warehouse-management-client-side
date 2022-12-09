@@ -6,7 +6,7 @@ const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
     axios
-      .get("https://intense-headland-97851.herokuapp.com/review")
+      .get("https://warehouse-management-server-side-six.vercel.app/review")
       .then((res) => {
         setReviews(res.data);
       });

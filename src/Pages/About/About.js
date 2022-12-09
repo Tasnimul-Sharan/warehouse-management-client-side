@@ -6,7 +6,7 @@ const About = () => {
   const [suppliers, setSupplier] = useState([]);
   useEffect(() => {
     axios
-      .get("https://intense-headland-97851.herokuapp.com/supplier")
+      .get("https://warehouse-management-server-side-six.vercel.app/supplier")
       .then((res) => {
         const { data } = res;
         setSupplier(data);

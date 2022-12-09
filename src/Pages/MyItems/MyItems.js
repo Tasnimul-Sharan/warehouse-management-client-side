@@ -14,7 +14,7 @@ const MyItems = () => {
     const getItems = async () => {
       const email = user?.email;
       const { data } = await axios.get(
-        `https://intense-headland-97851.herokuapp.com/item?email=${email}`,
+        `https://warehouse-management-server-side-six.vercel.app/item?email=${email}`,
         {
           headers: {
             authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -30,7 +30,9 @@ const MyItems = () => {
     const proceed = window.confirm("Are you sure");
     if (proceed) {
       axios
-        .delete(`https://intense-headland-97851.herokuapp.com/item/${id}`)
+        .delete(
+          `https://warehouse-management-server-side-six.vercel.app/item/${id}`
+        )
         .then((res) => {
           const { data } = res;
           console.log(data);

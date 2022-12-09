@@ -12,7 +12,10 @@ const AddInventoryItems = () => {
   const [user] = useAuthState(auth);
   const onSubmit = (data) => {
     axios
-      .post("https://intense-headland-97851.herokuapp.com/item", data)
+      .post(
+        "https://warehouse-management-server-side-six.vercel.app/item",
+        data
+      )
       .then((res) => {
         const { data } = res;
         console.log(data);
