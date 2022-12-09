@@ -64,7 +64,7 @@ const InventoryDetails = () => {
   return (
     <section>
       <div className="container row">
-        <div className="col-lg-6">
+        <div className="col-lg-8">
           <Card style={{ width: "20rem" }}>
             <Card.Img variant="top" src={inventory?.image} />
             <Card.Body>
@@ -83,15 +83,11 @@ const InventoryDetails = () => {
             </Card.Body>
           </Card>
         </div>
-        <div className=" col-lg-6 my-5">
+        <div className=" col-lg-4 my-5">
           <h1>Restock the items</h1>
           <form className="d-flex flex-column" onSubmit={restock}>
             <input placeholder="Put a quantity" type="number" name="quantity" />
-            <input
-              className="btn btn-outline-primary"
-              type="submit"
-              value="restock"
-            />
+            <input className="btn btn-primary" type="submit" value="Restock" />
           </form>
         </div>
       </div>
