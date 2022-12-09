@@ -1,16 +1,16 @@
 import React from "react";
 import { Fade } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
-import Banner2 from "../../../images/Banner2.jpg";
-import Banner3 from "../../../images/Banner3.jpg";
-import Banner1 from "../../../images/Banner1.jpg";
+import Banner5 from "../../../images/Banner5.jpg";
+import Banner3 from "../../../images/Banner3.png";
+import Banner1 from "../../../images/banner1.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
-    <div className="slide-container bg-primary text-white">
+    <div className="slide-container bg-primary text-white py-5">
       <Fade>
         <div
           data-aos="fade-right"
@@ -57,7 +57,7 @@ const Banner = () => {
             </Link>
           </div>
           <div className="col-lg-6">
-            <img className="img-fluid w-75" src={Banner2} alt="" />
+            <img className="img-fluid w-75" src={Banner5} alt="" />
           </div>
         </div>
         <div
