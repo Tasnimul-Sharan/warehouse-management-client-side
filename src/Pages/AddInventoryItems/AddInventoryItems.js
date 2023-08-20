@@ -11,18 +11,13 @@ const AddInventoryItems = () => {
   const { register, handleSubmit } = useForm();
   const [user] = useAuthState(auth);
   const onSubmit = (data) => {
-    axios
-      .post(
-        "https://warehouse-management-server-side-six.vercel.app/item",
-        data
-      )
-      .then((res) => {
-        const { data } = res;
-        console.log(data);
-        if (data) {
-          toast.success("You have added a new item, Yeah!!!");
-        }
-      });
+    axios.post("http://localhost:5000/item", data).then((res) => {
+      const { data } = res;
+      console.log(data);
+      if (data) {
+        toast.success("You have added a new item, Yeah!!!");
+      }
+    });
   };
 
   return (
@@ -53,6 +48,17 @@ const AddInventoryItems = () => {
           type="text"
           {...register("image")}
         />
+
+        {/* <Form.Control
+          type="file"
+          className="mb-2"
+          required
+          name="file"
+          {...register("image")}
+
+          // onChange={handleChange}
+          // isInvalid={!!errors.file}
+        /> */}
         <input
           placeholder="Item name"
           className="mb-2"

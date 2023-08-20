@@ -1,9 +1,10 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import {
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -11,14 +12,31 @@ import auth from "../../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
 import SocialLogin from "./SocialLogin/SocialLogin";
 import "./Login.css";
+import useToken from "../../../Hooks/useToken";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  // const [signInWithEmailAndPassword, user, loading] =
+  //   useSignInWithEmailAndPassword(auth);
   const [signInWithEmailAndPassword, user, loading] =
     useSignInWithEmailAndPassword(auth);
+  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+
+  const [token] = useToken(user || gUser);
+
+  const navigate = useNavigate();
+
+  let location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
+  useEffect(() => {
+    if (token) {
+      navigate(from, { replace: true });
+    }
+  }, [token, from, navigate]);
 
   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
@@ -31,15 +49,9 @@ const Login = () => {
     }
   };
 
-  const navigate = useNavigate();
-
-  let location = useLocation();
-  const from = location.state?.from?.pathname || "/";
-  console.log(from);
-
-  if (user) {
-    navigate(from, { replace: true });
-  }
+  // if (user) {
+  //   navigate(from, { replace: true });
+  // }
 
   if (loading || sending) {
     return <Loading />;
@@ -52,13 +64,7 @@ const Login = () => {
     }
     await signInWithEmailAndPassword(email, password);
 
-    const { data } = await axios.post(
-      "https://warehouse-management-server-side-six.vercel.app/login",
-      {
-        email,
-      }
-    );
-    console.log(data);
+    const { data } = token;
     localStorage.setItem("accessToken", data.accessToken);
   };
 

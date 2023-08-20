@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import {
   useCreateUserWithEmailAndPassword,
   useSendEmailVerification,
+  useSignInWithGoogle,
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -11,28 +12,35 @@ import auth from "../../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
 import SocialLogin from "../Login/SocialLogin/SocialLogin";
 import "./Registation.css";
+import useToken from "../../../Hooks/useToken";
 
 const Registation = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [error, setError] = useState("");
+  // const [error, setError] = useState("");
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
   const [updateProfile, updating] = useUpdateProfile(auth);
   const [sendEmailVerification, sending] = useSendEmailVerification(auth);
+  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
 
-  const [createUserWithEmailAndPassword, user, loading] =
-    useCreateUserWithEmailAndPassword(auth);
-
+  const [token] = useToken(user || gUser);
   const navigate = useNavigate();
+  // const {
+  //   register,
+  //   formState: { errors },
+  //   handleSubmit,
+  // } = useForm();
 
-  let location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
 
-  if (user) {
-    navigate(from, { replace: true });
-    console.log(user);
-  }
-
+  useEffect(() => {
+    if (token) {
+      navigate(from, { replace: true });
+    }
+  }, [token, from, navigate]);
   if (error) {
     console.error(error);
   }
@@ -43,9 +51,9 @@ const Registation = () => {
 
   const handleRegister = async (event) => {
     event.preventDefault();
-    if (password.length < 6) {
-      setError("Your password must be in 6 number or longer");
-    }
+    // if (password.length < 6) {
+    //   setError("Your password must be in 6 number or longer");
+    // }
 
     await createUserWithEmailAndPassword(email, password);
     await updateProfile({ displayName: name });

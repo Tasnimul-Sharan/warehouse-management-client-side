@@ -10,9 +10,7 @@ const InventoryDetails = () => {
   const [reload, setReload] = useState(true);
 
   useEffect(() => {
-    fetch(
-      `https://warehouse-management-server-side-six.vercel.app/management/${inventoryId}`
-    )
+    fetch(`http://localhost:5000/management/${inventoryId}`)
       .then((res) => res.json())
       .then((data) => setInventory(data));
   }, [reload]);
@@ -21,16 +19,13 @@ const InventoryDetails = () => {
     const quantity = parseInt(inventory.quantity) - 1;
     const updateQuantity = { quantity };
     console.log(updateQuantity);
-    fetch(
-      `https://warehouse-management-server-side-six.vercel.app/management/${inventoryId}`,
-      {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(updateQuantity),
-      }
-    )
+    fetch(`http://localhost:5000/management/${inventoryId}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updateQuantity),
+    })
       .then((res) => res.json())
       .then((data) => {
         setReload(!reload);
@@ -44,16 +39,13 @@ const InventoryDetails = () => {
     const stockQuantity = { quantity };
     console.log(stockQuantity);
 
-    fetch(
-      `https://warehouse-management-server-side-six.vercel.app/management/${inventoryId}`,
-      {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(stockQuantity),
-      }
-    )
+    fetch(`http://localhost:5000/management/${inventoryId}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(stockQuantity),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

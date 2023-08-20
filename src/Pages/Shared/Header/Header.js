@@ -59,6 +59,11 @@ const Header = () => {
                 </Nav.Link>
               )}
             </Nav>
+            <Nav>
+              <Nav.Link as={Link} to="/profile">
+                <li>{user && <p>{user.displayName}</p>}</li>
+              </Nav.Link>
+            </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
