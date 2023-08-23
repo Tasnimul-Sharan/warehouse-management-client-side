@@ -18,6 +18,8 @@ import RequireAuth from "./Pages/Login/Login/RequireAuth/RequireAuth";
 import About from "./Pages/About/About";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Dashboard from "./Dashboard/Dashboard";
+import MyProfile from "./Dashboard/MyProfile";
 AOS.init();
 
 function App() {
@@ -60,6 +62,16 @@ function App() {
             </RequireAuth>
           }
         />
+        <Route path="/dashboard" element={<Dashboard />}>
+          <Route index element={<MyProfile />}></Route>
+          <Route path="addinventory" element={<AddInventoryItems />}></Route>
+          <Route path="myitems" element={<MyItems />}></Route>
+          <Route
+            path="manageinventories"
+            element={<ManageInventories />}
+          ></Route>
+          {/* <Route path="payment/:id" element={<Payment />}></Route> */}
+        </Route>
         <Route path="/blogs" element={<Blogs />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/registation" element={<Registation />} />

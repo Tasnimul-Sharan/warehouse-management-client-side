@@ -12,6 +12,8 @@ import auth from "../../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
 import SocialLogin from "../Login/SocialLogin/SocialLogin";
 import "./Registation.css";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+
 import useToken from "../../../Hooks/useToken";
 
 const Registation = () => {
@@ -24,6 +26,12 @@ const Registation = () => {
   const [updateProfile, updating] = useUpdateProfile(auth);
   const [sendEmailVerification, sending] = useSendEmailVerification(auth);
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   const [token] = useToken(user || gUser);
   const navigate = useNavigate();
@@ -90,12 +98,21 @@ const Registation = () => {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Control
-            onChange={(e) => setPassword(e.target.value)}
-            type="password"
-            placeholder="Password"
-            required
-          />
+          <div className="password-field">
+            <Form.Control
+              onChange={(e) => setPassword(e.target.value)}
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              required
+            />
+            <Button
+              variant="link"
+              className="password-toggle-button"
+              onClick={toggleShowPassword}
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </Button>
+          </div>
         </Form.Group>
 
         <Button variant="outline-primary w-100" type="submit">

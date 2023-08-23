@@ -17,7 +17,7 @@ const Header = () => {
   return (
     <div className=" sticky-top">
       <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
-        <Container>
+        <Container className="ms-2">
           <Navbar.Brand as={Link} to="/">
             <img src={logo} width={"60px"} alt="" />
             <span>The Gadget Zone</span>
@@ -38,14 +38,8 @@ const Header = () => {
             <Nav>
               {user && (
                 <>
-                  <Nav.Link as={Link} to="/addinventory">
-                    AddItem
-                  </Nav.Link>
-                  <Nav.Link as={Link} to="/manageinventory">
-                    ManageItems
-                  </Nav.Link>
-                  <Nav.Link as={Link} to="/myitems">
-                    MyItems
+                  <Nav.Link as={Link} to="/dashboard">
+                    Dashboard
                   </Nav.Link>
                 </>
               )}
@@ -61,7 +55,7 @@ const Header = () => {
             </Nav>
             <Nav>
               <Nav.Link as={Link} to="/profile">
-                <li>{user && <p>{user.displayName}</p>}</li>
+                {user && <span>{user.displayName}</span>}
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>

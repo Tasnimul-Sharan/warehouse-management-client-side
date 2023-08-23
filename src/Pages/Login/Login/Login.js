@@ -12,6 +12,7 @@ import auth from "../../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
 import SocialLogin from "./SocialLogin/SocialLogin";
 import "./Login.css";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import useToken from "../../../Hooks/useToken";
 
 const Login = () => {
@@ -19,11 +20,14 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  // const [signInWithEmailAndPassword, user, loading] =
-  //   useSignInWithEmailAndPassword(auth);
   const [signInWithEmailAndPassword, user, loading] =
     useSignInWithEmailAndPassword(auth);
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   const [token] = useToken(user || gUser);
 
@@ -86,9 +90,16 @@ const Login = () => {
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Control
             onChange={(e) => setPassword(e.target.value)}
-            type="password"
+            type={showPassword ? "text" : "password"}
             placeholder="Password"
           />
+          <Button
+            variant="link"
+            className="password-toggle-button"
+            onClick={toggleShowPassword}
+          >
+            {showPassword ? <FaEyeSlash /> : <FaEye />}
+          </Button>
         </Form.Group>
         <p className="text-danger">{error}</p>
         <Button variant="outline-primary w-100" type="submit">
