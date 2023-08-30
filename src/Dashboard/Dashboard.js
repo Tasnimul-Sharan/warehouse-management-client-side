@@ -78,10 +78,16 @@ const Dashboard = () => {
                 My Profile
               </Link>
             </li>
+            <li className="nav-item ">
+              <Link to="/dashboard/order" className="nav-link text-white">
+                My Orders
+              </Link>
+            </li>
             <li className="nav-item">
               <Link to="/dashboard/myitems" className="nav-link text-white">
                 My items
               </Link>
+
               <Link
                 to="/dashboard/manageinventories"
                 className="nav-link text-white"

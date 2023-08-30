@@ -4,7 +4,8 @@
       "price": "$350",
       "name": "IPhone 12 max pro",
       "description": "The phone which is powered by the new Apple A14 Bionic processor, comes with a 6.7 inche Super Retina XDR OLED capacitive touchscreen and 2778 x 1284 p resolution. It features an HDR display and True Tone, and Wide color (P3) gamut. The display screen is protected by a unique ceramic shield and features 1200 nits max brightness, Dolby Vision, HDR10+ and 120Hz refresh rate.",
-      "quantity": 1000,
+      "availableQuantity": 3886,
+      "minimumQuantity": 268,
       "SuplierName": "Davenport Mccullough"
     },
     {
@@ -12,7 +13,8 @@
       "price": "$1000",
       "name": "Macbook Air",
       "description": "The MacBook Air, powered by Apple’s M1 processor,is the best laptop you can buy The base model,which includes 8GB of RAM and 256 GB of storage,Appearance-wise,this laptop has a lot in common with the Intel-powered MacBook Air that Apple released earlier this year, including the same 2560 x 1600 screen,Touch ID,720p webcam,fingerprint sensor.",
-      "quantity": 1000,
+      "availableQuantity": 2000,
+      "minimumQuantity": 150,
       "SuplierName": "Trujillo Cross"
     },
     {
@@ -20,7 +22,8 @@
       "price": "$250",
       "name": "Apple iMac",  
       "description": "The Apple iMac is the last Intel-powered all-in-one from Apple, but it still has plenty of power for most people.The 27-inch iMac boasts Intel 10th-generation processors, AMD Radeon Pro 5000 series graphics, and perhaps most importantly, a 1080p webcam – a big step up from the 720p cameras used in older iMacs. Other highlights of the 2020 iMac included enhanced speakers.",
-      "quantity": 1000,
+      "availableQuantity": 2345,
+      "minimumQuantity": 230,
       "SuplierName": "Stout Hopkins"
     },
     {
@@ -28,7 +31,8 @@
       "price": "$650",
       "name": "DJI Air 2S",
       "description": "The superb Air 2S combines the best features of our two previous favorite DJI drones, the Mavic Air 2 and Mavic 2 Pro. You get the compact, folding design of the former, plus the 20MP 1-Inch sensor found in the latter.The combination is a brilliant one that we loved in our review, making the Air 2S our top choice for hobbyists and also pros who need a small drone.",
-      "quantity": 1000,
+      "availableQuantity": 3756,
+      "minimumQuantity": 298,
       "SuplierName": "Annabelle Bradshaw"
     },
     {
@@ -36,7 +40,8 @@
       "price": "$1250",
       "name": "Samsung QN90A Neo QLED TV",
       "description": "The Samsung QN90A Neo QLED TV is one of the best TVs you can buy right now, period. It’s impossibly bright,stunningly thin, packed with clever “smart” features and as reliable as the company’s sets have ever been.With a proprietary mini-LED panel called Neo QLED,the QN90A promises superior performance to both its established OLED competitors.",
-      "quantity": 1000,
+      "availableQuantity": 5647,
+      "minimumQuantity": 287,
       "SuplierName": "Socorro Walsh"
     },
     {
@@ -44,7 +49,8 @@
       "price": "$350",
       "name": "Whirlpool 265 L 3-star",
       "description": "Whirlpool 265 l Frost-free refrigerator wine flume,This is one of the best refrigerators which will satisfy all your needs.This Whirlpool 265 liter frost-free refrigerator can now be automatically connected to the home inverter at ease,There is a large crisper that helps in storing large amounts of vegetables and fruits in this large crisper.",
-      "quantity": 1000,
+      "availableQuantity": 3456,
+      "minimumQuantity": 286,
       "SuplierName": "Christian Ronaldo"
     },
     {
@@ -52,7 +58,8 @@
       "price": "$350",
       "name": "IPhone 11 Pro Max",  
       "description": "Apple iPhone 11 Pro Max is powered by the Apple A13 Bionic processor. The smartphone comes with a 6.5 inches Super Retina XDR OLED capacitive touchscreen and 1242 x 2688 pixels resolution. The screen of the device is protected by Scratch-resistant glass and oleophobic coating.",
-      "quantity": 1000,
+      "availableQuantity": 1456,
+      "minimumQuantity": 123,
       "SuplierName": "jordan humble"
     },
     {
@@ -61,7 +68,8 @@
       "name": "DJI Mini 2",
       
       "description": "One of our few complaints in our review of the DJI Mavic Mini was that it couldn't shoot 4K video this excellent successor fixes that, while giving us a few extra treats in the process. The Mini 2 has the same ultra-compact design as before, making it the joint-smallest drone in DJI's line-up, but comes with a new controller that boosts it range.",
-      "quantity": 1000,
+      "availableQuantity": 1786,
+      "minimumQuantity": 197,
       "SuplierName": "Socorro Walsh"
     },
     {
@@ -69,7 +77,8 @@
       "price": "$365",
       "name": "Alienware Aurora R11",
       "description": "The Alienware Aurora R11 is currently one of the best gaming PCs you can buy, whether you go for a modest model that costs $1,000, or a mighty behemoth that costs $5,000. This gorgeous, highly customizable device features a slick chassis with a striking oval faceplate, as well as hardware up to an Intel Core i9-10900F CPU and an Nvidia GeForce RTX 3090 GPU.",
-      "quantity": 1000,
+      "availableQuantity": 1276,
+      "minimumQuantity": 198,
       "SuplierName": "Christian Alexander"
     },
     {
@@ -77,7 +86,8 @@
       "price": "$400",
       "name": "HP EliteBook",  
       "description": "The HP EliteBook 850  Core i7 11th Gen 13.3FHD Laptop with Windows 10 Pro · Processor: Intel Core i7-1165G7 (12M Cache, 2.80 GHz up to 4.70 GHz) · RAM: 8GB DDR4 ... is built for how you work with a new AI-based audio experience. This easy to carry ultralight and thin business PC comes with an 85-percent screen-to-body ratio and a quiet and comfortable keyboard to work on.",
-      "quantity": 200,
+      "availableQuantity": 4532,
+      "minimumQuantity": 297,
       "SuplierName": "Alex danhole"
     },
     {
@@ -85,7 +95,8 @@
       "price": "$450",
       "name": "Magic Chef HMM990ST",  
       "description": "The Magic Chef 0.9 cu. ft. Countertop Microwave provides ample space for a wide variety of cooking needs. The microwave's 30-second express cooking controls.This is a nice large microwave that heats up food very quickly.Magic Chef microwaves are reliable and fast.Good and affordable.",
-      "quantity": 200,
+      "availableQuantity": 1897,
+      "minimumQuantity": 248,
       "SuplierName": "jemes jolly"
     },
     {
@@ -93,7 +104,8 @@
       "price": "$870",
       "name": "Sony A90J OLED",  
       "description": "Sony is an international entertainment and technology company based in Japan. They make all kinds of different electronics from cameras,to headphones,to soundbars, and they also produce movies and video game consoles.there's a good choice you actively use a Sony product in your daily life.",
-      "quantity": 1050,
+      "availableQuantity": 1897,
+      "minimumQuantity": 265,
       "SuplierName": "Bianca Talley"
     }
   ]

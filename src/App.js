@@ -20,6 +20,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Dashboard from "./Dashboard/Dashboard";
 import MyProfile from "./Dashboard/MyProfile";
+import MyOrders from "./Dashboard/MyOrders";
+import Payment from "./Dashboard/Payment";
 AOS.init();
 
 function App() {
@@ -66,6 +68,8 @@ function App() {
           <Route index element={<MyProfile />}></Route>
           <Route path="addinventory" element={<AddInventoryItems />}></Route>
           <Route path="myitems" element={<MyItems />}></Route>
+          <Route path="order" element={<MyOrders />}></Route>
+          <Route path="payment/:id" element={<Payment />}></Route>
           <Route
             path="manageinventories"
             element={<ManageInventories />}

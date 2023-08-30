@@ -6,7 +6,10 @@ const MyItemRow = ({ handleDelete, item }) => {
   return (
     <tr>
       <td>
-        <img className="w-50" src={image} alt="" />
+        {/* <img className="w-50" src={image} alt="" /> */}
+        {/* <div className="w-25"> */}
+        <img src={image} alt="avatar" className="w-25 img-fluid" />
+        {/* </div> */}
       </td>
       <td>{name}</td>
       <td>{description}</td>
