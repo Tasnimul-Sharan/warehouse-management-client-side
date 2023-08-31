@@ -9,8 +9,16 @@ const Item = ({ inventory }) => {
     navigate(`details/${id}`);
   };
 
-  const { _id, name, image, description, price, quantity, SuplierName } =
-    inventory;
+  const {
+    _id,
+    name,
+    image,
+    description,
+    price,
+    availableQuantity,
+    minimumQuantity,
+    SuplierName,
+  } = inventory;
   return (
     <CardGroup
       data-aos="fade-left"
@@ -23,8 +31,9 @@ const Item = ({ inventory }) => {
         <Card.Body>
           <Card.Title>{name}</Card.Title>
           <Card.Text>{description}</Card.Text>
-          <h5>quantity: {quantity}</h5>
-          <h5>price: {price}</h5>
+          <h5>price: ${price}</h5>
+          <p>Available Quantity: {availableQuantity}</p>
+          <p>Minimum Quantity: {minimumQuantity}</p>
           <h5>{SuplierName}</h5>
         </Card.Body>
         <Card.Footer className="border-0">

@@ -2,9 +2,12 @@ import React from "react";
 import { Button, Card, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useInventories from "../../Hooks/useInventories/useInventories";
+import { useState } from "react";
+import DeleteManagementInventories from "./DeleteManagementInventories";
 
 const ManageInventories = () => {
   const [inventories, setInventories] = useInventories();
+
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure");
     if (proceed) {
@@ -21,6 +24,7 @@ const ManageInventories = () => {
         });
     }
   };
+  console.log(inventories);
   return (
     <div className="container-fluid">
       <Table striped bordered hover size="sm">
@@ -29,8 +33,9 @@ const ManageInventories = () => {
             <th>Image</th>
             <th>Name</th>
             <th>Description</th>
-            <th>Quantity</th>
             <th>Price</th>
+            <th>Available Quantity</th>
+            <th>Minimum Quantity</th>
             <th>SuplierName</th>
             <th>Action</th>
           </tr>
@@ -39,12 +44,13 @@ const ManageInventories = () => {
           {inventories.map((inventory) => (
             <tr key={inventory._id} inventory={inventory}>
               <td>
-                <img className="w-50 img-fluid" src={inventory.image} alt="" />
+                <img className="w-75 img-fluid" src={inventory.image} alt="" />
               </td>
               <td>{inventory.name}</td>
               <td>{inventory.description}</td>
-              <td>{inventory.quantity}</td>
-              <td>{inventory.price}</td>
+              <td>${inventory.price}</td>
+              <td>{inventory.availableQuantity}</td>
+              <td>{inventory.minimumQuantity}</td>
               <td>{inventory.SuplierName}</td>
               <td>
                 <Button
@@ -58,6 +64,14 @@ const ManageInventories = () => {
           ))}
         </tbody>
       </Table>
+      {/* {deleteInventories && (
+        <DeleteManagementInventories
+          deleteInventories={deleteInventories}
+          setDeleteInventories={setDeleteInventories}
+          setReload={setReload}
+          reload={reload}
+        />
+      )} */}
       <Link to="/addinventory">
         <button className="btn btn-primary">Add a new inventory</button>
       </Link>

@@ -22,6 +22,9 @@ import Dashboard from "./Dashboard/Dashboard";
 import MyProfile from "./Dashboard/MyProfile";
 import MyOrders from "./Dashboard/MyOrders";
 import Payment from "./Dashboard/Payment";
+import Users from "./Dashboard/Users";
+import ManageAllOrders from "./Dashboard/ManageAllOrders";
+import RequireAdmin from "./Pages/Login/RequireAdmin/RequireAdmin";
 AOS.init();
 
 function App() {
@@ -40,41 +43,65 @@ function App() {
             </RequireAuth>
           }
         />
-        <Route
-          path="/addinventory"
-          element={
-            <RequireAuth>
-              <AddInventoryItems />
-            </RequireAuth>
-          }
-        />
-        <Route
-          path="/manageinventory"
-          element={
-            <RequireAuth>
-              <ManageInventories />
-            </RequireAuth>
-          }
-        />
-        <Route
-          path="/myitems"
-          element={
-            <RequireAuth>
-              <MyItems />
-            </RequireAuth>
-          }
-        />
+
         <Route path="/dashboard" element={<Dashboard />}>
           <Route index element={<MyProfile />}></Route>
-          <Route path="addinventory" element={<AddInventoryItems />}></Route>
-          <Route path="myitems" element={<MyItems />}></Route>
-          <Route path="order" element={<MyOrders />}></Route>
-          <Route path="payment/:id" element={<Payment />}></Route>
+          <Route
+            path="order"
+            element={
+              <RequireAuth>
+                <MyOrders />
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="payment/:id"
+            element={
+              <RequireAuth>
+                <Payment />
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="myitems"
+            element={
+              <RequireAdmin>
+                <MyItems />
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="addinventory"
+            element={
+              <RequireAdmin>
+                <AddInventoryItems />
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="users"
+            element={
+              <RequireAdmin>
+                <Users />
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="manageallorder"
+            element={
+              <RequireAdmin>
+                <ManageAllOrders />
+              </RequireAdmin>
+            }
+          ></Route>
           <Route
             path="manageinventories"
-            element={<ManageInventories />}
+            element={
+              <RequireAdmin>
+                <ManageInventories />
+              </RequireAdmin>
+            }
           ></Route>
-          {/* <Route path="payment/:id" element={<Payment />}></Route> */}
         </Route>
         <Route path="/blogs" element={<Blogs />}></Route>
         <Route path="/about" element={<About />}></Route>

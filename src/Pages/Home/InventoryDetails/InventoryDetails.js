@@ -97,12 +97,11 @@ import { useForm } from "react-hook-form";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
-// import auth from "../../firebase.init";
-// import Loading from "../Shared/Loading";
 import axios from "axios";
 import { toast } from "react-toastify";
 import auth from "../../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
+import swal from "sweetalert";
 
 const InventoryDetails = () => {
   const { inventoryId } = useParams();
@@ -111,7 +110,7 @@ const InventoryDetails = () => {
   const [quantity, setQuantity] = useState(0);
 
   const {
-    data: manufacture,
+    data: inventory,
     isLoading,
     refetch,
   } = useQuery(["management", inventoryId], () =>
@@ -121,10 +120,10 @@ const InventoryDetails = () => {
   );
 
   useEffect(() => {
-    if (manufacture?.minimumQuantity) {
-      setQuantity(manufacture.minimumQuantity);
+    if (inventory?.minimumQuantity) {
+      setQuantity(inventory.minimumQuantity);
     }
-  }, [manufacture]);
+  }, [inventory]);
 
   const { register, handleSubmit } = useForm();
 
@@ -133,13 +132,19 @@ const InventoryDetails = () => {
       const { data } = res;
       console.log(data);
       if (
-        quantity >= manufacture?.minimumQuantity &&
-        quantity <= manufacture.availableQuantity
+        quantity >= inventory?.minimumQuantity &&
+        quantity <= inventory.availableQuantity
       ) {
-        toast.success("Your order has been placed");
+        // toast.success("Your order has been placed");
+        swal("Thanks for order", "Your order has been placed", "success");
       } else {
-        toast.error(
-          "You have to purchase at least the minimum quantity or available quantity"
+        // toast.error(
+        //   "You have to purchase at least the minimum quantity or available quantity"
+        // );
+        swal(
+          "Alert!",
+          "You have to purchase at least the minimum quantity or available quantity!",
+          "error"
         );
       }
 
@@ -181,7 +186,7 @@ const InventoryDetails = () => {
                         type="text"
                         className="form-control"
                         {...register("itemsname")}
-                        value={manufacture?.name}
+                        value={inventory?.name}
                       />
                     </div>
                     <div className="mb-3">
@@ -189,7 +194,7 @@ const InventoryDetails = () => {
                         type="text"
                         className="form-control"
                         {...register("image")}
-                        value={manufacture?.image}
+                        value={inventory?.image}
                       />
                     </div>
                     <div className="mb-3">
@@ -197,7 +202,7 @@ const InventoryDetails = () => {
                         type="text"
                         className="form-control"
                         {...register("price")}
-                        value={manufacture?.price}
+                        value={inventory?.price}
                       />
                     </div>
                   </div>
@@ -222,14 +227,19 @@ const InventoryDetails = () => {
                       <input
                         type="number"
                         className="form-control"
-                        defaultValue={manufacture?.minimumQuantity}
+                        defaultValue={inventory?.minimumQuantity}
                         onChange={(e) => {
                           if (
-                            e.target.value < manufacture.minimumQuantity ||
-                            e.target.value > manufacture.availableQuantity
+                            e.target.value < inventory.minimumQuantity ||
+                            e.target.value > inventory.availableQuantity
                           ) {
-                            toast.error(
-                              "You have to purchase at least the minimum quantity or available quantity"
+                            // toast.error(
+                            //   "You have to purchase at least the minimum quantity or available quantity"
+                            // );
+                            swal(
+                              "Alert!",
+                              "You have to order at least the minimum quantity or available quantity!",
+                              "error"
                             );
                           }
                           setQuantity(e.target.value);
@@ -240,8 +250,8 @@ const InventoryDetails = () => {
                       <button
                         type="submit"
                         disabled={
-                          quantity < manufacture.minimumQuantity ||
-                          quantity > manufacture.availableQuantity
+                          quantity < inventory.minimumQuantity ||
+                          quantity > inventory.availableQuantity
                         }
                         className="btn btn-primary w-100"
                       >
@@ -258,15 +268,15 @@ const InventoryDetails = () => {
           <div className="card mb-3 shadow-lg">
             <div className="card-body text-center">
               <img
-                src={manufacture?.image}
+                src={inventory?.image}
                 alt="Product"
                 className="img-fluid rounded-xl"
               />
-              <h2 className="card-title">{manufacture?.name}</h2>
-              <p>Description: {manufacture.description}</p>
-              <p>Price: ${manufacture.price}</p>
-              <p>Available Quantity: {manufacture?.availableQuantity}</p>
-              <p>Minimum Quantity: {manufacture?.minimumQuantity}</p>
+              <h2 className="card-title">{inventory?.name}</h2>
+              <p>Description: {inventory.description}</p>
+              <p>Price: ${inventory.price}</p>
+              <p>Available Quantity: {inventory?.availableQuantity}</p>
+              <p>Minimum Quantity: {inventory?.minimumQuantity}</p>
             </div>
           </div>
         </div>

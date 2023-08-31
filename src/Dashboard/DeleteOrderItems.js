@@ -63,26 +63,11 @@
 // export default DeleteOrderItems;
 
 import React from "react";
-import { useState } from "react";
-import { Button, Modal } from "react-bootstrap";
+import { Modal, Button } from "react-bootstrap";
 import { toast } from "react-toastify";
 
-const DeleteOrderItems = ({
-  deleting,
-  setDeleting,
-  setReload,
-  reload,
-  //   show,
-  //   handleClose,
-  showDeleteModal,
-  setShowDeleteModal,
-}) => {
+const DeleteOrderItems = ({ deleting, setDeleting, setReload, reload }) => {
   const { itemsname, email } = deleting;
-
-  //   const [show, setShow] = useState(false);
-
-  //   const handleClose = () => setShow(false);
-  //   const handleShow = () => setShow(true);
 
   const handleDelete = () => {
     fetch(`http://localhost:5000/orders/${email}`, {
@@ -102,66 +87,24 @@ const DeleteOrderItems = ({
   };
 
   return (
-    // <>
-    //   {/* <Button variant="primary" onClick={handleShow}>
-    //     Launch demo modal
-    //   </Button> */}
-
-    //   <Modal show={show}>
-    //     <Modal.Header>
-    //       <Modal.Title> Are you sure you want to delete?</Modal.Title>
-    //     </Modal.Header>
-    //     <Modal.Body>{itemsname}</Modal.Body>
-    //     <Modal.Footer>
-    //       <Button variant="dark" onClick={handleClose}>
-    //         Close
-    //       </Button>
-    //       <Button variant="danger" onClick={() => handleDelete(email)}>
-    //         Delete
-    //       </Button>
-    //     </Modal.Footer>
-    //   </Modal>
-    // </>
-    <div
-      className={`modal ${showDeleteModal ? "show" : ""}`}
-      tabIndex="-1"
-      role="dialog"
-      style={{ display: showDeleteModal ? "block" : "none" }}
-    >
-      <div className="modal-dialog" role="document">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title">Confirm Deletion</h5>
-            <button
-              type="button"
-              className="close"
-              onClick={() => setShowDeleteModal(true)}
-            >
-              <span>&times;</span>
-            </button>
-          </div>
-          <div className="modal-body">
-            Are you sure you want to delete this order?
-          </div>
-          <div className="modal-footer">
-            <button
-              type="button"
-              className="btn btn-secondary"
-              onClick={() => setShowDeleteModal(false)}
-            >
-              Cancel
-            </button>
-            <button
-              type="button"
-              className="btn btn-danger"
-              onClick={() => handleDelete(email)}
-            >
-              Delete
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Modal show={true} onHide={() => setDeleting(false)}>
+      <Modal.Header closeButton>
+        <Modal.Title className="font-bold text-lg">
+          Are you sure want to delete
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <p className="py-4">{itemsname}</p>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={() => setDeleting(false)}>
+          Cancel
+        </Button>
+        <Button variant="danger" onClick={() => handleDelete(email)}>
+          Delete
+        </Button>
+      </Modal.Footer>
+    </Modal>
   );
 };
 

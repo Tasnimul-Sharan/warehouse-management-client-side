@@ -1,5 +1,3 @@
-// import { faStar } from "@fortawesome/free-regular-svg-icons";
-// import { faStar } from "@fortawesome/free-regular-svg-icons";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -15,7 +13,7 @@ const Review = ({ review }) => {
       data-aos-duration="1000"
       className="g-5 col-sm-12 col-md-6 col-lg-4 mb-3"
     >
-      <Card bg="primary" text="white" style={{ width: "18rem" }}>
+      <Card className="shadow-lg" style={{ width: "18rem" }}>
         <Card.Img
           variant="top"
           className=" mx-auto img-fluid img-thumbnail rounded w-50"

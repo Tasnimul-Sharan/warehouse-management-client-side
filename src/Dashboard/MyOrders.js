@@ -11,12 +11,6 @@ const MyOrders = () => {
   const [user] = useAuthState(auth);
   const [deleting, setDeleting] = useState(null);
   const [reload, setReload] = useState(true);
-  //   const [show, setShow] = useState(false);
-
-  //   const handleClose = () => setShow(false);
-  //   const handleShow = () => setShow(true);
-
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   console.log(deleting);
 
@@ -111,10 +105,6 @@ const MyOrders = () => {
           setDeleting={setDeleting}
           setReload={setReload}
           reload={reload}
-          //   show={show}
-          //   handleClose={handleClose}
-          showDeleteModal={showDeleteModal}
-          setShowDeleteModal={setShowDeleteModal}
         />
       )}
     </div>

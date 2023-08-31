@@ -14,6 +14,7 @@ import SocialLogin from "./SocialLogin/SocialLogin";
 import "./Login.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import useToken from "../../../Hooks/useToken";
+import google from "../../../images/google.png";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -57,7 +58,7 @@ const Login = () => {
   //   navigate(from, { replace: true });
   // }
 
-  if (loading || sending) {
+  if (loading || gLoading || sending) {
     return <Loading />;
   }
 
@@ -121,7 +122,17 @@ const Login = () => {
           Reset Password
         </Button>
       </p>
-      <SocialLogin />
+      {/* <SocialLogin /> */}
+      <div>
+        <button
+          className="btn btn-outline-primary"
+          onClick={() => signInWithGoogle()}
+        >
+          {" "}
+          <img src={google} alt="" />
+          Sign In With Google
+        </button>
+      </div>
     </div>
   );
 };
