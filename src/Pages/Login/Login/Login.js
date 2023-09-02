@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Button, Form } from "react-bootstrap";
+// import { Button, Form } from "react-bootstrap";
 import {
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
@@ -15,6 +15,8 @@ import "./Login.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import useToken from "../../../Hooks/useToken";
 import google from "../../../images/google.png";
+import { Form, Button, Image, InputGroup } from "react-bootstrap";
+// import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const [email, setEmail] = useState("");

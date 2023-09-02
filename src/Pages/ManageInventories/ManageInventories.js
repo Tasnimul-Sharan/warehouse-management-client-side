@@ -7,12 +7,17 @@ import DeleteManagementInventories from "./DeleteManagementInventories";
 
 const ManageInventories = () => {
   const [inventories, setInventories] = useInventories();
+  // const [deleteInventories, setDeleteInventories] = useState(true);
+  // const [reload, setReload] = useState(true);
 
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure");
     if (proceed) {
       fetch(`http://localhost:5000/management/${id}`, {
         method: "DELETE",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
       })
         .then((res) => res.json())
         .then((data) => {
@@ -70,6 +75,8 @@ const ManageInventories = () => {
           setDeleteInventories={setDeleteInventories}
           setReload={setReload}
           reload={reload}
+          setInventories={setInventories}
+          inventories={inventories}
         />
       )} */}
       <Link to="/addinventory">

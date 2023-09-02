@@ -7,9 +7,11 @@ const DeleteManagementInventories = ({
   setDeleteInventories,
   reload,
   setReload,
+  inventories,
+  setInventories,
 }) => {
-  const { name, _id } = deleteInventories;
-  console.log(deleteInventories);
+  const { name, _id } = inventories;
+  console.log(inventories);
 
   const handleDelete = (id) => {
     fetch(`http://localhost:5000/management/${id}`, {
@@ -21,6 +23,10 @@ const DeleteManagementInventories = ({
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        const remaining = inventories.filter(
+          (inventory) => inventory._id !== id
+        );
+        setInventories(remaining);
         if (data.deletedCount) {
           toast.success("You have deleted the parts");
           setDeleteInventories(false);

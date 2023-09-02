@@ -146,7 +146,7 @@ const AddInventoryItems = () => {
             .then((inserted) => {
               console.log(inserted);
               if (inserted.insertedId) {
-                toast.success("You have added a product successfully");
+                toast.success("You have added a item successfully");
               } else {
                 toast.error("failed to add a product");
               }
