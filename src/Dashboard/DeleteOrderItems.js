@@ -6,7 +6,7 @@
 //   console.log(deleting);
 
 //   const handleDelete = () => {
-//     fetch(`http://localhost:5000/orders/${email}`, {
+//     fetch(`https://warehouse-management-server-side-six.vercel.app/orders/${email}`, {
 //       method: "DELETE",
 //       headers: {
 //         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -70,12 +70,15 @@ const DeleteOrderItems = ({ deleting, setDeleting, setReload, reload }) => {
   const { itemsname, email } = deleting;
 
   const handleDelete = () => {
-    fetch(`http://localhost:5000/orders/${email}`, {
-      method: "DELETE",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
+    fetch(
+      `https://warehouse-management-server-side-six.vercel.app/orders/${email}`,
+      {
+        method: "DELETE",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {

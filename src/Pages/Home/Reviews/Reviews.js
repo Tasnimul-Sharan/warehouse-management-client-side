@@ -5,9 +5,11 @@ import Review from "../Review/Review";
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:5000/review").then((res) => {
-      setReviews(res.data);
-    });
+    axios
+      .get("https://warehouse-management-server-side-six.vercel.app/review")
+      .then((res) => {
+        setReviews(res.data);
+      });
   }, []);
   return (
     <div className="container my-5">

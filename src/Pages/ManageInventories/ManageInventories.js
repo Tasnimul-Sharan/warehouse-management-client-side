@@ -13,12 +13,15 @@ const ManageInventories = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure");
     if (proceed) {
-      fetch(`http://localhost:5000/management/${id}`, {
-        method: "DELETE",
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      })
+      fetch(
+        `https://warehouse-management-server-side-six.vercel.app/management/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
