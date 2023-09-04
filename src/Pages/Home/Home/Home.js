@@ -4,24 +4,28 @@ import Inventories from "../Inventories/Inventories";
 import Reviews from "../Reviews/Reviews";
 import WhyUs from "../WhyUs/WhyUs";
 import Footer from "../../Shared/Footer/Footer";
+import Contact from "../Contact/Contact";
+import BusinessSummary from "../BusinessSummary/BusinessSummary";
 
 const Home = () => {
   return (
-    <section>
-      <div>
-        <Banner />
-      </div>
-      <div>
-        <Inventories />
-      </div>
-      <div>
-        <WhyUs />
-      </div>
-      <div>
-        <Reviews />
-      </div>
+    <div>
+      {/* <div> */}
+      <Banner />
+      {/* </div>
+      <div> */}
+      <Inventories />
+      {/* </div>
+      <div> */}
+      <BusinessSummary />
+      <WhyUs />
+      {/* </div>
+      <div> */}
+      <Reviews />
+      {/* </div> */}
+      <Contact />
       <Footer />
-    </section>
+    </div>
   );
 };
 

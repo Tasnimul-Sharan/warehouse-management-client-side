@@ -12,16 +12,13 @@ const UseOrderRow = ({
   const { image, price, itemsname, _id } = order;
 
   const handleShipped = () => {
-    fetch(
-      `https://warehouse-management-server-side-six.vercel.app/payments/${_id}`,
-      {
-        method: "PATCH",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      }
-    )
+    fetch(`http://localhost:5000/payments/${_id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

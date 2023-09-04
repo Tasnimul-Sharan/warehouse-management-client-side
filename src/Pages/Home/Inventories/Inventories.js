@@ -13,9 +13,6 @@ const Inventories = () => {
           <Inventory key={inventory._id} inventory={inventory}></Inventory>
         ))}
       </div>
-      <Link to="/manageinventory">
-        <button className="btn btn-primary">Manage Items</button>
-      </Link>
     </div>
   );
 };

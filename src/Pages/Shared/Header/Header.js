@@ -54,7 +54,7 @@ const Header = () => {
               )}
             </Nav>
             <Nav>
-              <Nav.Link as={Link} to="/profile">
+              <Nav.Link as={Link} to="/myprofile">
                 {user && <span>{user.displayName}</span>}
               </Nav.Link>
             </Nav>

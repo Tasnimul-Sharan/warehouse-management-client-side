@@ -26,7 +26,7 @@ const Banner = () => {
               Browse our selection of refurbished gadgets at a lower prices than
               the high street.
             </p>
-            <Link to="/manageinventory">
+            <Link to="/manageinventories">
               <button className="btn btn-danger p-2">
                 See Gadgets
                 <FontAwesomeIcon className="ms-5" icon={faArrowRight} />
@@ -49,7 +49,7 @@ const Banner = () => {
               We have a huge Quantity of gadgets so anyone start his own
               business.
             </p>
-            <Link to="/manageinventory">
+            <Link to="/manageinventories">
               <button className="btn btn-danger p-2">
                 See Gadgets
                 <FontAwesomeIcon className="ms-5" icon={faArrowRight} />
@@ -71,7 +71,7 @@ const Banner = () => {
               Experience the latest <br /> In upscaling Technology
             </h1>
             <p>The new era of Electronics are starts now new devices.</p>
-            <Link to="/manageinventory">
+            <Link to="/dashboard/manageinventories">
               <button className="btn btn-danger p-2">
                 See Gadgets
                 <FontAwesomeIcon

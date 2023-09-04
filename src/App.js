@@ -25,6 +25,7 @@ import Payment from "./Dashboard/Payment";
 import Users from "./Dashboard/Users";
 import ManageAllOrders from "./Dashboard/ManageAllOrders";
 import RequireAdmin from "./Pages/Login/RequireAdmin/RequireAdmin";
+import Profile from "./Pages/Profile/Profile";
 AOS.init();
 
 function App() {
@@ -62,14 +63,7 @@ function App() {
               </RequireAuth>
             }
           ></Route>
-          <Route
-            path="myitems"
-            element={
-              <RequireAdmin>
-                <MyItems />
-              </RequireAdmin>
-            }
-          ></Route>
+
           <Route
             path="addinventory"
             element={
@@ -107,6 +101,7 @@ function App() {
         <Route path="/about" element={<About />}></Route>
         <Route path="/registation" element={<Registation />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <ToastContainer />

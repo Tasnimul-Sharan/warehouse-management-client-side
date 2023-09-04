@@ -6,28 +6,44 @@ import { toast } from "react-toastify";
 import auth from "../firebase.init";
 import Loading from "../Pages/Shared/Loading/Loading";
 
+const imageApiKey = "07fbca00b5a9b6edf6b4d94c0a586185";
+
 const MyProfile = () => {
   const [user, loading] = useAuthState(auth);
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
-    const email = user?.email;
-    fetch(
-      `https://warehouse-management-server-side-six.vercel.app/profile/${email}`,
-      {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(data),
-      }
-    )
+    console.log(data.image[0]);
+    const image = data.image[0];
+    const formData = new FormData();
+    formData.append("image", image);
+    fetch(`https://api.imgbb.com/1/upload?key=${imageApiKey}`, {
+      method: "POST",
+      body: formData,
+    })
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data) {
-          toast.success("You have successfully saved your profile");
+      .then((result) => {
+        console.log("image", result);
+        if (result.success) {
+          const image = result.data.url;
+          console.log("jgjgjg", image);
+
+          console.log(data);
+          const email = user?.email;
+          fetch(`http://localhost:5000/profile/${email}`, {
+            method: "PUT",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(data),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              if (data) {
+                toast.success("You have successfully saved your profile");
+              }
+            });
         }
       });
   };
@@ -97,6 +113,13 @@ const MyProfile = () => {
                 id="profileLink"
                 className="form-control"
                 {...register("profileLink")}
+              />
+            </div>
+            <div className="mb-3">
+              <input
+                type="file"
+                className="form-control"
+                {...register("image")}
               />
             </div>
             <div className="mb-3">

@@ -5,16 +5,14 @@ import { Card } from "react-bootstrap";
 const About = () => {
   const [suppliers, setSupplier] = useState([]);
   useEffect(() => {
-    axios
-      .get("https://warehouse-management-server-side-six.vercel.app/supplier")
-      .then((res) => {
-        const { data } = res;
-        setSupplier(data);
-      });
+    axios.get("http://localhost:5000/supplier").then((res) => {
+      const { data } = res;
+      setSupplier(data);
+    });
   }, []);
   return (
     <section>
-      <div className="bg-primary text-white mt-1 p-5">
+      <div className="bg-primary text-white p-5">
         <h1>
           About <br /> The Gadget Zone
         </h1>
@@ -37,12 +35,12 @@ const About = () => {
               key={supplier?._id}
               supplier={supplier}
             >
-              <Card bg="primary" text="white" style={{ width: "18rem" }}>
+              <Card className="shadow-lg" style={{ width: "18rem" }}>
                 <Card.Img variant="top" src={supplier?.image} />
                 <Card.Body>
                   <Card.Title>{supplier?.name}</Card.Title>
                   <h5>{supplier?.address}</h5>
-                  <h5>{supplier?.age}</h5>
+                  <h5>Age: {supplier?.age}</h5>
                 </Card.Body>
               </Card>
             </div>
