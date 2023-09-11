@@ -11,7 +11,7 @@
 //   const { register, handleSubmit } = useForm();
 //   const [user] = useAuthState(auth);
 //   const onSubmit = (data) => {
-//     axios.post("http://localhost:5000/management", data).then((res) => {
+//     axios.post("https://warehouse-management-server-side-six.vercel.app/management", data).then((res) => {
 //       const { data } = res;
 //       console.log(data);
 //       if (data) {
@@ -134,14 +134,17 @@ const AddInventoryItems = () => {
             description: data.description,
             image: image,
           };
-          fetch("http://localhost:5000/management", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-            },
-            body: JSON.stringify(product),
-          })
+          fetch(
+            "https://warehouse-management-server-side-six.vercel.app/management",
+            {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+              },
+              body: JSON.stringify(product),
+            }
+          )
             .then((res) => res.json())
             .then((inserted) => {
               console.log(inserted);
