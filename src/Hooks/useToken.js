@@ -7,16 +7,13 @@ const useToken = (user) => {
     const currentUser = { email: email };
     console.log(email, currentUser);
     if (email) {
-      fetch(
-        `https://warehouse-management-server-side-six.vercel.app/user/${email}`,
-        {
-          method: "PUT",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(currentUser),
-        }
-      )
+      fetch(`http://localhost:5000/user/${email}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(currentUser),
+      })
         .then((res) => res.json())
         .then((data) => {
           console.log("data inside token", data);

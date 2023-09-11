@@ -7,7 +7,7 @@ import Loading from "../Shared/Loading/Loading";
 
 const Profile = () => {
   const [profileData, setProfileData] = useState([{}]);
-  //   const apiUrl = `https://warehouse-management-server-side-six.vercel.app/profile/${email}`;
+  //   const apiUrl = `http://localhost:5000/profile/${email}`;
 
   //   useEffect(() => {
   //     fetch(apiUrl)
@@ -22,7 +22,7 @@ const Profile = () => {
     const getProfile = async (email) => {
       //   const email = user.user?.email;
       const { data } = await axios.get(
-        `https://warehouse-management-server-side-six.vercel.app/profile?email=${email}`,
+        `http://localhost:5000/profile?email=${email}`,
         {
           headers: {
             authorization: `Bearer ${localStorage.getItem("accessToken")}`,

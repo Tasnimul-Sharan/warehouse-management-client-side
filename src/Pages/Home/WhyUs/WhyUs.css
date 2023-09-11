@@ -1,4 +1,4 @@
-.Fontawesome {
+/* .Fontawesome {
   font-size: 37px;
   color: rgb(53, 45, 35);
   background-color: #149ddd;
@@ -11,4 +11,53 @@
 .whyus .icon-box:hover .Fontawesome {
   background-color: #fff;
   color: #149ddd;
+} */
+/* WhyUs.css */
+.whyus {
+  padding: 50px 0;
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+.whyus h3 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.icon-box {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+  margin: 20px;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.icon-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.Fontawesome {
+  font-size: 2rem;
+  color: #007bff;
+}
+
+h5 {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+p {
+  font-size: 1rem;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .icon-box {
+    margin: 20px auto;
+  }
 }

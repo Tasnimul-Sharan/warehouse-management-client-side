@@ -7,3 +7,72 @@
 .custom-text-lg {
   font-size: 1.5rem;
 }
+
+/* BusinessSummary.css */
+.hover-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.custom-text-lg {
+  font-size: 2.5rem;
+}
+
+/* BusinessSummary.css */
+/* .custom-text-lg {
+  font-size: 2.5rem;
+}
+
+.card-body {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card-body:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.icon {
+  font-size: 3rem;
+  color: white;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.icon.bg-primary {
+  background-color: #007bff;
+}
+
+.icon.bg-success {
+  background-color: #28a745;
+}
+
+.icon.bg-info {
+  background-color: #17a2b8;
+}
+
+.icon.bg-warning {
+  background-color: #ffc107;
+}
+
+.text-primary {
+  color: #007bff;
+}
+
+.text-success {
+  color: #28a745;
+}
+
+.text-info {
+  color: #17a2b8;
+}
+
+.text-warning {
+  color: #ffc107;
+} */

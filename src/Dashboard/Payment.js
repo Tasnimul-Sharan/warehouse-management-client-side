@@ -13,15 +13,12 @@ const stripePromise = loadStripe(
 const Payment = () => {
   const { id } = useParams();
   const { data: item, isLoading } = useQuery(["orders", id], () =>
-    fetch(
-      `https://warehouse-management-server-side-six.vercel.app/orders/${id}`,
-      {
-        method: "GET",
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      }
-    ).then((res) => res.json())
+    fetch(`http://localhost:5000/orders/${id}`, {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    }).then((res) => res.json())
   );
 
   if (isLoading) {

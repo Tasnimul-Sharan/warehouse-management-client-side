@@ -10,7 +10,7 @@
 //   const [reload, setReload] = useState(true);
 
 //   useEffect(() => {
-//     fetch(`https://warehouse-management-server-side-six.vercel.app/management/${inventoryId}`)
+//     fetch(`http://localhost:5000/management/${inventoryId}`)
 //       .then((res) => res.json())
 //       .then((data) => setInventory(data));
 //   }, [reload]);
@@ -19,7 +19,7 @@
 //     const quantity = parseInt(inventory.quantity) - 1;
 //     const updateQuantity = { quantity };
 //     console.log(updateQuantity);
-//     fetch(`https://warehouse-management-server-side-six.vercel.app/management/${inventoryId}`, {
+//     fetch(`http://localhost:5000/management/${inventoryId}`, {
 //       method: "PUT",
 //       headers: {
 //         "content-type": "application/json",
@@ -39,7 +39,7 @@
 //     const stockQuantity = { quantity };
 //     console.log(stockQuantity);
 
-//     fetch(`https://warehouse-management-server-side-six.vercel.app/management/${inventoryId}`, {
+//     fetch(`http://localhost:5000/management/${inventoryId}`, {
 //       method: "PUT",
 //       headers: {
 //         "content-type": "application/json",
@@ -114,9 +114,9 @@ const InventoryDetails = () => {
     isLoading,
     refetch,
   } = useQuery(["management", inventoryId], () =>
-    fetch(
-      `https://warehouse-management-server-side-six.vercel.app/management/${inventoryId}`
-    ).then((res) => res.json())
+    fetch(`http://localhost:5000/management/${inventoryId}`).then((res) =>
+      res.json()
+    )
   );
 
   useEffect(() => {
@@ -128,33 +128,28 @@ const InventoryDetails = () => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    axios
-      .post(
-        "https://warehouse-management-server-side-six.vercel.app/orders",
-        data
-      )
-      .then((res) => {
-        const { data } = res;
-        console.log(data);
-        if (
-          quantity >= inventory?.minimumQuantity &&
-          quantity <= inventory.availableQuantity
-        ) {
-          // toast.success("Your order has been placed");
-          swal("Thanks for order", "Your order has been placed", "success");
-        } else {
-          // toast.error(
-          //   "You have to purchase at least the minimum quantity or available quantity"
-          // );
-          swal(
-            "Alert!",
-            "You have to purchase at least the minimum quantity or available quantity!",
-            "error"
-          );
-        }
+    axios.post("http://localhost:5000/orders", data).then((res) => {
+      const { data } = res;
+      console.log(data);
+      if (
+        quantity >= inventory?.minimumQuantity &&
+        quantity <= inventory.availableQuantity
+      ) {
+        // toast.success("Your order has been placed");
+        swal("Thanks for order", "Your order has been placed", "success");
+      } else {
+        // toast.error(
+        //   "You have to purchase at least the minimum quantity or available quantity"
+        // );
+        swal(
+          "Alert!",
+          "You have to purchase at least the minimum quantity or available quantity!",
+          "error"
+        );
+      }
 
-        refetch();
-      });
+      refetch();
+    });
   };
 
   if (isLoading) {

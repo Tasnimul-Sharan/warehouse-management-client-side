@@ -41,7 +41,7 @@ const Item = ({ inventory }) => {
             onClick={() => navigateToDetails(_id)}
             variant="outline-primary"
           >
-            Update
+            Order now
           </Button>
         </Card.Footer>
       </Card>

@@ -14,7 +14,7 @@ const MyItems = () => {
     const getItems = async () => {
       const email = user?.email;
       const { data } = await axios.get(
-        `https://warehouse-management-server-side-six.vercel.app/item?email=${email}`,
+        `http://localhost:5000/item?email=${email}`,
         {
           headers: {
             authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -29,16 +29,12 @@ const MyItems = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure");
     if (proceed) {
-      axios
-        .delete(
-          `https://warehouse-management-server-side-six.vercel.app/item/${id}`
-        )
-        .then((res) => {
-          const { data } = res;
-          console.log(data);
-          const remaining = items.filter((inventory) => inventory._id !== id);
-          setItems(remaining);
-        });
+      axios.delete(`http://localhost:5000/item/${id}`).then((res) => {
+        const { data } = res;
+        console.log(data);
+        const remaining = items.filter((inventory) => inventory._id !== id);
+        setItems(remaining);
+      });
     }
   };
 
