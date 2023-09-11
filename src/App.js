@@ -26,6 +26,7 @@ import Users from "./Dashboard/Users";
 import ManageAllOrders from "./Dashboard/ManageAllOrders";
 import RequireAdmin from "./Pages/Login/RequireAdmin/RequireAdmin";
 import Profile from "./Pages/Profile/Profile";
+import AddReview from "./Dashboard/AddReview";
 AOS.init();
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
 
         <Route path="/dashboard" element={<Dashboard />}>
           <Route index element={<MyProfile />}></Route>
+          <Route path="review" element={<AddReview />}></Route>
           <Route
             path="order"
             element={

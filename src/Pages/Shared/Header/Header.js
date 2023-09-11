@@ -29,7 +29,7 @@ const Header = () => {
                 Gadgets
               </Nav.Link>
               <Nav.Link as={Link} to="/blogs">
-                Blogs
+                FQA
               </Nav.Link>
               <Nav.Link as={Link} to="/about">
                 About
