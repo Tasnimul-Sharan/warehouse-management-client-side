@@ -41,7 +41,7 @@ const Payment = () => {
                 Please pay for {item.itemsname}
               </h2>
               <img src={item.image} alt="" className="img-fluid" />
-              <h2 className="text-xl text-danger">Please pay: {item.price}</h2>
+              <h2 className="text-xl text-danger">Please pay: ${item.price}</h2>
             </div>
           </div>
         </div>

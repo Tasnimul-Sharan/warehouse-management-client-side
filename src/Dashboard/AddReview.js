@@ -63,7 +63,7 @@ const AddReview = () => {
                   />
                 </div>
                 <div className="text-center">
-                  <button type="submit" className="btn btn-primary w-full">
+                  <button type="submit" className="btn btn-primary w-100">
                     Add Review
                   </button>
                 </div>

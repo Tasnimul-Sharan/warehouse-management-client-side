@@ -47,6 +47,7 @@ const MyOrders = () => {
               <div>
                 <th>Image</th>
               </div>
+
               <th>Price</th>
               <th>Items Name</th>
               <th>Action</th>
@@ -59,9 +60,14 @@ const MyOrders = () => {
                 <td>{index + 1}</td>
                 <td>
                   <div className="w-25">
-                    <img src={order.image} alt="avatar" className="img-fluid" />
+                    <img
+                      src={order.image}
+                      alt="avatar"
+                      className="img-fluid w-25"
+                    />
                   </div>
                 </td>
+
                 <td>{order.price}</td>
                 <td>{order.itemsname}</td>
                 <td>
