@@ -1,4 +1,3 @@
-import axios from "axios";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
@@ -27,8 +26,17 @@ const MyProfile = () => {
         if (result.success) {
           const image = result.data.url;
           console.log("jgjgjg", image);
-
           console.log(data);
+
+          const profileData = {
+            name: data.name,
+            email: data.email,
+            education: data.education,
+            location: data.location,
+            phoneNumber: data.phoneNumber,
+            image: image,
+          };
+
           const email = user?.email;
           fetch(
             `https://warehouse-management-server-side-six.vercel.app/profile/${email}`,
@@ -37,7 +45,7 @@ const MyProfile = () => {
               headers: {
                 "content-type": "application/json",
               },
-              body: JSON.stringify(data),
+              body: JSON.stringify(profileData),
             }
           )
             .then((res) => res.json())
@@ -90,7 +98,7 @@ const MyProfile = () => {
             </div>
             <div className="mb-3 text-start">
               <label htmlFor="location" className="form-label">
-                Location (City/District)
+                Location (City/District)education
               </label>
               <input
                 type="text"
@@ -109,7 +117,7 @@ const MyProfile = () => {
             </div>
             <div className="mb-3 text-start">
               <label htmlFor="profileLink" className="form-label">
-                Your LinkedIn Profile Link
+                Your Facebook Profile Link
               </label>
               <input
                 type="url"

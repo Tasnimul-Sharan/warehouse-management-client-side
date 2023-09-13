@@ -1,69 +1,65 @@
 import React, { useState, useEffect } from "react";
-import { Card, Row, Col } from "react-bootstrap";
+import { Card, Row, Col, Button } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import axios from "axios";
-import Loading from "../Shared/Loading/Loading";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
-  const [profileData, setProfileData] = useState([{}]);
-  //   const apiUrl = `https://warehouse-management-server-side-six.vercel.app/profile/${email}`;
-
-  //   useEffect(() => {
-  //     fetch(apiUrl)
-  //       .then((response) => response.json())
-  //       .then((data) => setProfileData(data))
-  //       .catch((error) => console.error("Error fetching profile data: ", error));
-  //   }, [apiUrl, email]);
-
-  const [user, loading] = useAuthState(auth);
+  const [profileData, setProfileData] = useState([]);
+  const [user] = useAuthState(auth);
 
   useEffect(() => {
-    const getProfile = async (email) => {
-      //   const email = user.user?.email;
-      const { data } = await axios.get(
-        `https://warehouse-management-server-side-six.vercel.app/profile?email=${email}`,
-        {
-          headers: {
-            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-          },
+    const getProfile = async () => {
+      if (user) {
+        try {
+          const { data } = await axios.get(
+            `https://warehouse-management-server-side-six.vercel.app/profile?email=${user?.email}`,
+            {
+              headers: {
+                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+              },
+            }
+          );
+          setProfileData(data);
+        } catch (error) {
+          console.error("Error fetching profile data:", error);
         }
-      );
-      setProfileData(data);
-      console.log("API Response Data: ", data);
+      }
     };
     getProfile();
   }, [user]);
-
-  if (loading) {
-    return <Loading />;
-  }
 
   return (
     <div className="profile-section">
       <Card>
         <Card.Header>
-          <h5>Profile Information</h5>
+          <h3 className="mb-0">Profile Information</h3>
         </Card.Header>
-        <Card.Body>
-          <Row>
-            <Col md={4}>
-              <img
-                src={profileData.image || "default-profile-image.jpg"}
-                alt="Profile"
-                className="img-fluid rounded-circle"
-              />
-            </Col>
-            <Col md={8}>
-              <h5>{user.displayName}</h5>
-              <p>Email: {user.email}</p>
-              <p>Education: {profileData.education}</p>
-              <p>Location: {profileData.location}</p>
-              <p>Phone Number: {profileData.phoneNumber}</p>
-              <p>Profile Link: {profileData.profileLink}</p>
-            </Col>
-          </Row>
-        </Card.Body>
+        {profileData.map((profile) => (
+          <Card.Body className="shadow-lg" key={profile._id}>
+            <Row>
+              <Col md={4} className="text-center">
+                <img
+                  src={profile?.image}
+                  alt="Profile"
+                  className="img-fluid w-75 rounded-circle profile-image"
+                />
+              </Col>
+              <Col md={8}>
+                <h4>Name: {profile.name}</h4>
+                <p>Email: {profile.email}</p>
+                <p>Education: {profile.education}</p>
+                <p>Location: {profile.location}</p>
+                <p>Phone Number: {profile.phoneNumber}</p>
+                <p>Profile Link: {profile.profileLink}</p>
+                <Link to="/dashboard">
+                  <Button variant="primary">Edit Profile</Button>
+                </Link>
+              </Col>
+            </Row>
+          </Card.Body>
+        ))}
       </Card>
     </div>
   );
