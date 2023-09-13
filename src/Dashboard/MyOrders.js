@@ -59,7 +59,7 @@ const MyOrders = () => {
               <tr key={order._id}>
                 <td>{index + 1}</td>
                 <td>
-                  <div className="w-25">
+                  <div className="text-start">
                     <img
                       src={order.image}
                       alt="avatar"
